@@ -125,9 +125,9 @@ parse_config:
     "&smart_mouse": Smart Mouse
     "&undo_redo": { "t": Undo, "h": "Redo" }
 
-    "&kp LC(X)": $$mdi:content-cut$$
-    "&kp LC(C)": $$mdi:content-copy$$
-    "&kp LC(V)": $$mdi:content-paste$$
+    "&kp LC(X)": { tap: $$mdi:content-cut$$ }
+    "&kp LC(C)": { tap: $$mdi:content-copy$$ }
+    "&kp LC(V)": { tap: $$mdi:content-paste$$ }
 
     "&kp LG(LC(LEFT))": Prev Desk
     "&kp LG(LC(RIGHT))": Next Desk
