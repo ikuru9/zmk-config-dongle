@@ -415,6 +415,17 @@ combo_##NAME { \
       };
 
       /*
+        - tab: qmark
+        - shift tab: excl
+      */
+      /omit-if-no-ref/ pipe_bslh: pipe_bslh {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp PIPE>, <&kp BSLH>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+
+      /*
         - tab: undo
         - tab x2: redo
       */
@@ -534,16 +545,16 @@ combo_##NAME { \
     
       COMBO(mouse, &smart_mouse, LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(cut,   &kp LC(X),  LB3 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(copy,  &kp LC(C),  LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(paste, &kp LS(V),  LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(cut,        &kp LC(X),    LB3 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(copy,       &kp LC(C),    LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(paste,      &kp LS(V),    LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(pipe,  &kp PIPE,   RT3 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(pipe_bslh,  &pipe_bslh,   RT4 RT5,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(lbkt,  &kp LBKT,   RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(rbkt,  &kp RBKT,   RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(lbrc,  &kp LBRC,   RB1 RB2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(rbrc,  &kp RBRC,   RB2 RB3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(lbkt,       &kp LBKT,     RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(rbkt,       &kp RBKT,     RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(lbrc,       &kp LBRC,     RB1 RB2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(rbrc,       &kp RBRC,     RB2 RB3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
     };
 
     conditional_layers {
@@ -578,7 +589,7 @@ combo_##NAME { \
         display-name = "Nav";
         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           XXX           XXX           &kp LS(TAB)   &swapper      XXX                                             ___                            &kp LC(LG(F)) XXX           NAV_UP        XXX           XXX           XXX
+    ___           XXX           XXX           &kp LS(TAB)   &swapper      XXX                                             ___                            &kp LC(LA(F)) XXX           NAV_UP        XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &sk LGUI      &sk LALT      &sk LSHFT     &sk LCTRL     XXX                               ___           ___           ___              XXX           NAV_LEFT      NAV_DOWN      NAV_RIGHT     XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤

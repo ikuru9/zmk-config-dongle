@@ -155,10 +155,6 @@ parse_config:
     "&hm RIGHT_ALT L":
       tap: 'L'
       shifted: $$mdi:apple-keyboard-option$$
-    # self behaviors
-    "&hm LG(LS(V)) P":
-      tap: 'P'
-      shifted: $$mdi:content-copy$$
     # Mouse
     "&msc SCRL_UP":
       tap: $$mdi:pan-up$$
@@ -254,6 +250,67 @@ parse_config:
       tap: $$mdi:backup-restore$$
     "&bootloader":
       tap: $$mdi:progress-download$$
+
+    # systems
+    '&out OUT_BLE':
+      tap: $$mdi:keyboard$$
+      shifted: $$mdi:bluetooth$$
+      type: sym_by_sym
+    '&out OUT_USB':
+      tap: $$mdi:keyboard$$
+      shifted: $$mdi:usb$$
+      type: sym_by_sym
+    '&out OUT_TOG':
+      tap: $$mdi:toggle-switch$$
+      hold: $$mdi:bluetooth$$
+      shifted: $$mdi:usb$$
+      type: toggle
+
+    # rgb
+    '&rgb_ug RGB_TOG':
+      tap: $$mdi:toggle-switch$$
+      hold: $$mdi:led-on$$
+      shifted: $$mdi:led-outline$$
+      type: toggle
+    '&rgb_ug RGB_BRI':
+      tap:     $$mdi:led-on$$
+      shifted: $$mdi:white-balance-sunny$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_SAI':
+      tap:     $$mdi:led-on$$
+      shifted: $$mdi:eyedropper$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_HUI':
+      tap:     $$mdi:led-on$$
+      shifted: $$mdi:palette$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_BRD':
+      tap:     $$mdi:led-outline$$
+      shifted: $$mdi:white-balance-sunny$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_SAD':
+      tap:     $$mdi:led-outline$$
+      shifted: $$mdi:eyedropper$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_HUD':
+      tap:     $$mdi:led-outline$$
+      shifted: $$mdi:palette$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_COLOR_HSB(25,100,0)':
+      tap:     $$mdi:led-on$$
+      shifted: $$mdi:gradient-horizontal$$
+      hold:    "(25,100,0)"
+      type:    sym_by_sym
+    '&rgb_ug RGB_COLOR_HSB(25,100,80)':
+      tap:     $$mdi:led-on$$
+      shifted: $$mdi:gradient-horizontal$$
+      hold:    "(25,100,80)"
+      type:    sym_by_sym
+    '&rgb_ug RGB_COLOR_HSB(25,0,100)':
+      tap:     $$mdi:led-on$$
+      shifted: $$mdi:gradient-horizontal$$
+      hold:    "(25,0,100)"
+      type:    sym_by_sym
 
   # ZMK
   zmk_keycode_map:
@@ -391,28 +448,6 @@ parse_config:
       shifted: ")"
 
     # Modifiers
-    LCTRL: $$mdi:apple-keyboard-control$$
-    LEFT_CONTROL: $$mdi:apple-keyboard-control$$
-    LALT: $$mdi:apple-keyboard-option$$
-    LEFT_ALT: $$mdi:apple-keyboard-option$$
-    LSHIFT: $$mdi:apple-keyboard-shift$$
-    LEFT_SHIFT: $$mdi:apple-keyboard-shift$$
-    LSHFT: $$mdi:apple-keyboard-shift$$
-    LCMD: $$mdi:apple-keyboard-command$$
-    LG: $$mdi:apple-keyboard-command$$
-    LEFT_GUI: $$mdi:apple-keyboard-command$$
-    LEFT_COMMAND: $$mdi:apple-keyboard-command$$
-    RCTRL: $$mdi:apple-keyboard-control$$
-    RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
-    RALT: $$mdi:apple-keyboard-option$$
-    RIGHT_ALT: $$mdi:apple-keyboard-option$$
-    RSHIFT: $$mdi:apple-keyboard-shift$$
-    RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
-    RSHFT: $$mdi:apple-keyboard-shift$$
-    RCMD: $$mdi:apple-keyboard-command$$
-    RG: $$mdi:apple-keyboard-command$$
-    PSCRN: $$mdi:printer-outline$$
-    RIGHT_COMMAND: $$mdi:apple-keyboard-command$$
     PAGE_UP:
       tap: 'PgUp'
       shifted: ''
@@ -422,8 +457,6 @@ parse_config:
     INSERT:
        tap: 'Ins'
        shifted: ''
-    # "Meh" key
-    LS(LC(LALT)): $$mdi:star-three-points$$
 
     # Arrows
     UP: $$mdi:arrow-up-bold$$
@@ -522,16 +555,6 @@ parse_config:
       hold: zoom
 
   zmk_combos:
-    combo_to_2:
-      align: top
-    combo_to_3:
-      align: top
-    combo_bt_clear:
-      align: top
-      offset: 0.03
-    combo_mute:
-      align: top
-      offset: 0.15
     combo_minus:
       key:
         shifted: "_"
@@ -556,3 +579,222 @@ parse_config:
       key:
         shifted: ":"
         hold: ";"
+    combo_cut:
+      key:
+        tap: $$mdi:apple-keyboard-command$$
+
+parse_config:
+  zmk_additional_includes:
+    - "modules/zmk/helpers/include"
+
+  zmk_preamble: |
+    #include <zmk-helpers/key-labels/34.h>
+    #define CONFIG_WIRELESS
+
+  raw_binding_map:
+    "&sys_reset": Reset
+    "&bootloader": Boot
+    "&caps_word": Caps Word
+
+    "&bt BT_SEL 0": BT 1
+    "&bt BT_SEL 1": BT 2
+    "&bt BT_SEL 2": BT 3
+    "&bt BT_SEL 3": BT 4
+
+    "&kp LC(C)": Copy
+    "&kp LC(X)": Cut
+    "&kp LS(V)": Paste
+
+    "&kp LG(LC(LEFT))": Prev Desk
+    "&kp LG(LC(RIGHT))": Next Desk
+    "&kp LG(LC(LS(A)))": Pin App
+    "&kp LG(LC(LS(Q)))": Pin Win
+
+    "&swapper": Next Win
+    "&kp LS(TAB)": Prev Win
+    "&dot_spc": Sentence
+    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
+    "&magic_shift": { "t": Magic, "h": "Shift" }
+    "&smart_mouse": Smart Mouse
+    "&undo_redo": { "t": Undo, "h": "Redo" }
+
+    "&hml LS(LALT)TAB": Tab
+    "&hm_combo_ldr": Leader
+    "&hm_combo_ldrsh": Shift+Leader
+    "&hm_combo_lpar": { "t": "(", "right": "<" }
+    "&hm_combo_rpar": { "t": ")", "right": ">" }
+    "&kp LBKT": { "t": "[", "right": "{" }
+    "&kp RBKT": { "t": "]", "right": "}" }
+
+    "&mmv MOVE_UP": Mouse ↑
+    "&mmv MOVE_DOWN": Mouse ↓
+    "&mmv MOVE_LEFT": Mouse ←
+    "&mmv MOVE_RIGHT": Mouse →
+
+    "&msc SCRL_UP": Scroll ↑
+    "&msc SCRL_DOWN": Scroll ↓
+    "&msc SCRL_LEFT": Scroll ←
+    "&msc SCRL_RIGHT": Scroll →
+
+    "&mkp LCLK": Left Click
+    "&mkp RCLK": Right Click
+    "&mkp MCLK": Middle Click
+    "&mkp MB4": Back Click
+    "&mkp MB5": Forward Click
+
+  trans_legend: { "t": "", "type": "trans" }
+
+  zmk_keycode_map:
+    LG: $$mdi:apple-keyboard-command$$
+    LGUI: $$mdi:apple-keyboard-command$$
+    LEFT_GUI: $$mdi:apple-keyboard-command$$
+    RG: $$mdi:apple-keyboard-command$$
+    RGUI: $$mdi:apple-keyboard-command$$
+    RIGHT_GUI: $$mdi:apple-keyboard-command$$
+    LA: $$mdi:apple-keyboard-option$$
+    LALT: $$mdi:apple-keyboard-option$$
+    LEFT_ALT: $$mdi:apple-keyboard-option$$
+    RA: $$mdi:apple-keyboard-option$$
+    RALT: $$mdi:apple-keyboard-option$$
+    RIGHT_ALT: $$mdi:apple-keyboard-option$$
+    LS: $$mdi:apple-keyboard-shift$$
+    LSHFT: $$mdi:apple-keyboard-shift$$
+    LSHIFT: $$mdi:apple-keyboard-shift$$
+    LEFT_SHIFT: $$mdi:apple-keyboard-shift$$
+    RSHFT: $$mdi:apple-keyboard-shift$$
+    RSHIFT: $$mdi:apple-keyboard-shift$$
+    RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
+    RS: $$mdi:apple-keyboard-shift$$
+    RC: $$mdi:apple-keyboard-control$$
+    RCTRL: $$mdi:apple-keyboard-control$$
+    RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
+    LC: $$mdi:apple-keyboard-control$$
+    LCTRL: $$mdi:apple-keyboard-control$$
+    LEFT_CONTROL: $$mdi:apple-keyboard-control$$
+
+    TAB: $$mdi:keyboard-tab$$
+    BSPC: $$mdi:backspace-outline$$
+    BACKSPACE: $$mdi:backspace-outline$$
+    DEL: $$mdi:backspace-reverse-outline$$
+    DELETE: $$mdi:backspace-reverse-outline$$
+    ESC: "⎋"
+    RET: "⏎"
+    RETURN: "⏎"
+    SPACE: $$mdi:keyboard-space$$
+    GLOBE: $$tabler:world$$
+
+    PG_UP: PgUp
+    PG_DN: PgDn
+    INS: Ins
+    HOME: Home
+    END: End
+
+    UP: ↑
+    DOWN: ↓
+    LEFT: ←
+    RIGHT: →
+    LA(LEFT): ↞
+    LA(RIGHT): ↠
+    LG(LEFT): ⇤
+    LG(RIGHT): ⇥
+
+    LC(LA(F)) $$mdi:fullscreen$$
+
+    LS(LC(LG(LALT))): 'HYPER'
+    RS(RC(RG(RALT))): 'HYPER'
+    LC(LG(LALT)): $$mdi:star-three-points$$
+    RC(RG(RALT)): $$mdi:star-three-points$$
+
+    C_MUTE: $$mdi:volume-off$$
+    C_PP: $$mdi:play-pause$$
+    C_VOL_UP: $$mdi:volume-high$$
+    C_VOL_DN: $$mdi:volume-medium$$
+    C_NEXT: $$mdi:skip-forward$$
+    C_PREV: $$mdi:skip-backward$$
+    C_REWIND: '⏮'
+    C_FAST_FORWARD: '⏭'
+    C_PAUSE: '⏯'
+    C_BRIGHTNESS_DEC: '☀↓'
+    C_BRIGHTNESS_INC: '☀↑'
+
+    # defaults
+    AMPERSAND: "&"
+    AMPS: "&"
+    APOS: "'"
+    APOSTROPHE: "'"
+    ASTERISK: "*"
+    ASTRK: "*"
+    AT: "@"
+    AT_SIGN: "@"
+    BACKSLASH: \
+    BSLH: \
+    CARET: ^
+    COLON: ":"
+    COMMA: ","
+    DLLR: $
+    DOLLAR: $
+    DOT: .
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    EQUAL: "="
+    EXCL: "!"
+    EXCLAMATION: "!"
+    FSLH: /
+    GRAVE: "`"
+    GREATER_THAN: ">"
+    GT: ">"
+    HASH: "#"
+    LBKT: "["
+    LBRC: "{"
+    LEFT_BRACE: "{"
+    LEFT_BRACKET: "["
+    LEFT_PARENTHESIS: (
+    LESS_THAN: <
+    LPAR: (
+    LT: <
+    MINUS: "-"
+    NON_US_BACKSLASH: \
+    NON_US_BSLH: "|"
+    NON_US_HASH: "#"
+    NUHS: "#"
+    PERCENT: "%"
+    PERIOD: .
+    PIPE: "|"
+    PIPE2: "|"
+    PLUS: +
+    POUND: "#"
+    PRCNT: "%"
+    QMARK: "?"
+    QUESTION: "?"
+    RBKT: "]"
+    RBRC: "}"
+    RIGHT_BRACE: "}"
+    RIGHT_BRACKET: "]"
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    SEMI: ;
+    SEMICOLON: ;
+    SINGLE_QUOTE: "'"
+    SLASH: /
+    SQT: "'"
+    STAR: "*"
+    TILDE: "~"
+    TILDE2: "~"
+    UNDER: _
+    UNDERSCORE: _
+
+zmk_combos:
+  combo_cut:
+    'k': { t: $$mdi:content-cut$$ }}
+  combo_copy:
+    'k': { t: $$mdi:content-copy$$ }}
+  combo_paste: 
+    'k': { t: $$mdi:content-paste$$ }
+  combo_pipe_bslh:
+    tap:  "|"
+    hold: "\"
+
+draw_config:
+  append_colon_to_layer_header: false
+  dark_mode: auto
+  footer_text: "ikuru9/zmk-config"
