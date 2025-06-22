@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/tokyo2006
     - name: englmaxi
       url-base: https://github.com/englmaxi
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: hammerbeam-slideshow
       remote: gpeye
@@ -21,6 +23,13 @@ manifest:
       revision: change_spi2
     - name: zmk-dongle-display
       remote: englmaxi
+      revision: main
+    # ZMK modules
+    - name: zmk-auto-layer
+      remote: urob
+      revision: main
+    - name: zmk-adaptive-key
+      remote: urob
       revision: main
   self:
     path: config
