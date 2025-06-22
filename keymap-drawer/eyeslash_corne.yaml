@@ -57,7 +57,7 @@ layers:
   - '&swapper'
   - ''
   - {t: ▽, type: trans}
-  - Ctl+Gui+F
+  - Ctl+Alt+F
   - ''
   - {t: UP, h: Ctl+HOME}
   - ''
@@ -307,8 +307,8 @@ combos:
 - p: [31, 32]
   k: Sft+V
   l: [Base, Nav, Num]
-- p: [10, 11]
-  k: '|'
+- p: [11, 12]
+  k: {t: '|', s: \}
   l: [Base, Nav, Num]
 - p: [37, 38]
   k: '['
