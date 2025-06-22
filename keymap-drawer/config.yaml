@@ -117,43 +117,38 @@ parse_config:
     type: trans
 
   raw_binding_map:
-    # Layers
-    "&ltq 1 BACKSPACE":
-      tap:  $$mdi:backspace$$
-      hold: '$$mdi:navigation-variant$$'
-    "&ltq 3 TAB":
-      tap: $$mdi:keyboard-tab$$
-      hold: $$mdi:numeric$$
-    "&ltq 2 SPACE":
-      tap: $$mdi:keyboard-space$$
-      hold: $$mdi:symbol$$
-    "&ltq 3 ENTER":
-      tap: $$mdi:keyboard-return$$
-      hold: $$mdi:numeric$$
-    "&ltq 1 DELETE":
-      tap: $$mdi:backspace-reverse-outline$$
-      hold: $$mdi:navigation-variant$$
+    "&swapper": Next Win
+    "&kp LS(TAB)": Prev Win
+    "&dot_spc": Sentence
+    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
+    "&magic_shift": { "t": Magic, "h": "Shift" }
+    "&smart_mouse": Smart Mouse
+    "&undo_redo": { "t": Undo, "h": "Redo" }
+
     # Home rows
-    "&hm LEFT_GUI A":
+    "&hml LGUI A":
       tap: 'A'
       shifted: $$mdi:apple-keyboard-command$$
-    "&hm LEFT_ALT S":
+    "&hml LALT S":
       tap: 'S'
       shifted: $$mdi:apple-keyboard-option$$
-    "&hm LEFT_CONTROL D":
+    "&hml LSHFT D":
       tap: 'D'
-      shifted: $$mdi:apple-keyboard-control$$
-    "&hm LEFT_SHIFT F":
+      shifted: $$mdi:apple-keyboard-shift$$
+    "&hml LCTRL F":
       tap: 'F'
-      shifted: $$mdi:apple-keyboard-shift$$
-    "&hm RIGHT_SHIFT J":
-      tap: 'J'
-      shifted: $$mdi:apple-keyboard-shift$$
-    "&hm RIGHT_CONTROL K":
-      tap: 'K'
       shifted: $$mdi:apple-keyboard-control$$
-    "&hm RIGHT_ALT L":
+    "&hmr LCTRL J":
+      tap: 'J'
+      shifted: $$mdi:apple-keyboard-control$$
+    "&hmr RSHFT K":
+      tap: 'K'
+      shifted: $$mdi:apple-keyboard-shift$$
+    "&hmr LALT L":
       tap: 'L'
+      shifted: $$mdi:apple-keyboard-option$$
+    "&hmr LGUI SQT":
+      tap: "'"
       shifted: $$mdi:apple-keyboard-option$$
     # Mouse
     "&msc SCRL_UP":
@@ -194,11 +189,16 @@ parse_config:
       tap: $$mdi:mouse-right-click-outline$$
     "&mkp MCLK":
       tap: $$mdi:mouse-scroll-wheel$$
+
     # Modifiers
     "&caps_word": $$mdi:alpha-w-box$$
+    "&esc_grave":
+      tap: $$mdi:keyboard-esc$$
+      shifted: $$tabler:world$$
     "&kt RSHIFT":
       tap: $$mdi:apple-keyboard-shift$$
       hold: $$mdi:toggle-switch$$
+      
 
     # Empty
     "&none":
@@ -314,6 +314,45 @@ parse_config:
 
   # ZMK
   zmk_keycode_map:
+
+    LG: $$mdi:apple-keyboard-command$$
+    LGUI: $$mdi:apple-keyboard-command$$
+    LEFT_GUI: $$mdi:apple-keyboard-command$$
+    RG: $$mdi:apple-keyboard-command$$
+    RGUI: $$mdi:apple-keyboard-command$$
+    RIGHT_GUI: $$mdi:apple-keyboard-command$$
+    LA: $$mdi:apple-keyboard-option$$
+    LALT: $$mdi:apple-keyboard-option$$
+    LEFT_ALT: $$mdi:apple-keyboard-option$$
+    RA: $$mdi:apple-keyboard-option$$
+    RALT: $$mdi:apple-keyboard-option$$
+    RIGHT_ALT: $$mdi:apple-keyboard-option$$
+    LS: $$mdi:apple-keyboard-shift$$
+    LSHFT: $$mdi:apple-keyboard-shift$$
+    LSHIFT: $$mdi:apple-keyboard-shift$$
+    LEFT_SHIFT: $$mdi:apple-keyboard-shift$$
+    RSHFT: $$mdi:apple-keyboard-shift$$
+    RSHIFT: $$mdi:apple-keyboard-shift$$
+    RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
+    RS: $$mdi:apple-keyboard-shift$$
+    RC: $$mdi:apple-keyboard-control$$
+    RCTRL: $$mdi:apple-keyboard-control$$
+    RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
+    LC: $$mdi:apple-keyboard-control$$
+    LCTRL: $$mdi:apple-keyboard-control$$
+    LEFT_CONTROL: $$mdi:apple-keyboard-control$$
+
+    TAB: $$mdi:keyboard-tab$$
+    BSPC: $$mdi:backspace-outline$$
+    BACKSPACE: $$mdi:backspace-outline$$
+    DEL: $$mdi:backspace-reverse-outline$$
+    DELETE: $$mdi:backspace-reverse-outline$$
+    ESC: "⎋"
+    RET: "⏎"
+    RETURN: "⏎"
+    SPACE: $$mdi:keyboard-space$$
+    GLOBE: $$tabler:world$$
+
     # Symbols
     EXCLAMATION: "!"
     EXCL: "!"
@@ -521,38 +560,6 @@ parse_config:
     C_AL_LOCK: $$mdi:lock$$
     K_CANCEL: $$mdi:close-box$$
     K_FIND: $$mdi:apple-finder$$
-    # Command + 
-    LG(A):
-      tap: 'A'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(S):
-      tap: 'S'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(D):
-      tap: 'D'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(F):
-      tap: 'F'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(Z):
-      tap: 'Z'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(X):
-      tap: 'X'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(C):
-      tap: 'C'
-      hold: $$mdi:apple-keyboard-command$$
-    LG(V):
-      tap: 'V'
-      hold: $$mdi:apple-keyboard-command$$
-    # Zoom
-    RG(RS(A)):
-      tap: $$mdi:microphone$$
-      hold: zoom
-    RG(RS(V)):
-      tap: $$mdi:video$$
-      hold: zoom
 
   zmk_combos:
     combo_minus:
@@ -579,217 +586,17 @@ parse_config:
       key:
         shifted: ":"
         hold: ";"
-    combo_cut:
-      key:
-        tap: $$mdi:apple-keyboard-command$$
-
-parse_config:
-  zmk_additional_includes:
-    - "modules/zmk/helpers/include"
-
-  zmk_preamble: |
-    #include <zmk-helpers/key-labels/34.h>
-    #define CONFIG_WIRELESS
-
-  raw_binding_map:
-    "&sys_reset": Reset
-    "&bootloader": Boot
-    "&caps_word": Caps Word
-
-    "&bt BT_SEL 0": BT 1
-    "&bt BT_SEL 1": BT 2
-    "&bt BT_SEL 2": BT 3
-    "&bt BT_SEL 3": BT 4
-
-    "&kp LC(C)": Copy
-    "&kp LC(X)": Cut
-    "&kp LS(V)": Paste
-
-    "&kp LG(LC(LEFT))": Prev Desk
-    "&kp LG(LC(RIGHT))": Next Desk
-    "&kp LG(LC(LS(A)))": Pin App
-    "&kp LG(LC(LS(Q)))": Pin Win
-
-    "&swapper": Next Win
-    "&kp LS(TAB)": Prev Win
-    "&dot_spc": Sentence
-    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
-    "&magic_shift": { "t": Magic, "h": "Shift" }
-    "&smart_mouse": Smart Mouse
-    "&undo_redo": { "t": Undo, "h": "Redo" }
-
-    "&hml LS(LALT)TAB": Tab
-    "&hm_combo_ldr": Leader
-    "&hm_combo_ldrsh": Shift+Leader
-    "&hm_combo_lpar": { "t": "(", "right": "<" }
-    "&hm_combo_rpar": { "t": ")", "right": ">" }
-    "&kp LBKT": { "t": "[", "right": "{" }
-    "&kp RBKT": { "t": "]", "right": "}" }
-
-    "&mmv MOVE_UP": Mouse ↑
-    "&mmv MOVE_DOWN": Mouse ↓
-    "&mmv MOVE_LEFT": Mouse ←
-    "&mmv MOVE_RIGHT": Mouse →
-
-    "&msc SCRL_UP": Scroll ↑
-    "&msc SCRL_DOWN": Scroll ↓
-    "&msc SCRL_LEFT": Scroll ←
-    "&msc SCRL_RIGHT": Scroll →
-
-    "&mkp LCLK": Left Click
-    "&mkp RCLK": Right Click
-    "&mkp MCLK": Middle Click
-    "&mkp MB4": Back Click
-    "&mkp MB5": Forward Click
-
-  trans_legend: { "t": "", "type": "trans" }
-
-  zmk_keycode_map:
-    LG: $$mdi:apple-keyboard-command$$
-    LGUI: $$mdi:apple-keyboard-command$$
-    LEFT_GUI: $$mdi:apple-keyboard-command$$
-    RG: $$mdi:apple-keyboard-command$$
-    RGUI: $$mdi:apple-keyboard-command$$
-    RIGHT_GUI: $$mdi:apple-keyboard-command$$
-    LA: $$mdi:apple-keyboard-option$$
-    LALT: $$mdi:apple-keyboard-option$$
-    LEFT_ALT: $$mdi:apple-keyboard-option$$
-    RA: $$mdi:apple-keyboard-option$$
-    RALT: $$mdi:apple-keyboard-option$$
-    RIGHT_ALT: $$mdi:apple-keyboard-option$$
-    LS: $$mdi:apple-keyboard-shift$$
-    LSHFT: $$mdi:apple-keyboard-shift$$
-    LSHIFT: $$mdi:apple-keyboard-shift$$
-    LEFT_SHIFT: $$mdi:apple-keyboard-shift$$
-    RSHFT: $$mdi:apple-keyboard-shift$$
-    RSHIFT: $$mdi:apple-keyboard-shift$$
-    RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
-    RS: $$mdi:apple-keyboard-shift$$
-    RC: $$mdi:apple-keyboard-control$$
-    RCTRL: $$mdi:apple-keyboard-control$$
-    RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
-    LC: $$mdi:apple-keyboard-control$$
-    LCTRL: $$mdi:apple-keyboard-control$$
-    LEFT_CONTROL: $$mdi:apple-keyboard-control$$
-
-    TAB: $$mdi:keyboard-tab$$
-    BSPC: $$mdi:backspace-outline$$
-    BACKSPACE: $$mdi:backspace-outline$$
-    DEL: $$mdi:backspace-reverse-outline$$
-    DELETE: $$mdi:backspace-reverse-outline$$
-    ESC: "⎋"
-    RET: "⏎"
-    RETURN: "⏎"
-    SPACE: $$mdi:keyboard-space$$
-    GLOBE: $$tabler:world$$
-
-    PG_UP: PgUp
-    PG_DN: PgDn
-    INS: Ins
-    HOME: Home
-    END: End
-
-    UP: ↑
-    DOWN: ↓
-    LEFT: ←
-    RIGHT: →
-    LA(LEFT): ↞
-    LA(RIGHT): ↠
-    LG(LEFT): ⇤
-    LG(RIGHT): ⇥
-
-    LC(LA(F)) $$mdi:fullscreen$$
-
-    LS(LC(LG(LALT))): 'HYPER'
-    RS(RC(RG(RALT))): 'HYPER'
-    LC(LG(LALT)): $$mdi:star-three-points$$
-    RC(RG(RALT)): $$mdi:star-three-points$$
-
-    C_MUTE: $$mdi:volume-off$$
-    C_PP: $$mdi:play-pause$$
-    C_VOL_UP: $$mdi:volume-high$$
-    C_VOL_DN: $$mdi:volume-medium$$
-    C_NEXT: $$mdi:skip-forward$$
-    C_PREV: $$mdi:skip-backward$$
-    C_REWIND: '⏮'
-    C_FAST_FORWARD: '⏭'
-    C_PAUSE: '⏯'
-    C_BRIGHTNESS_DEC: '☀↓'
-    C_BRIGHTNESS_INC: '☀↑'
-
-    # defaults
-    AMPERSAND: "&"
-    AMPS: "&"
-    APOS: "'"
-    APOSTROPHE: "'"
-    ASTERISK: "*"
-    ASTRK: "*"
-    AT: "@"
-    AT_SIGN: "@"
-    BACKSLASH: \
-    BSLH: \
-    CARET: ^
-    COLON: ":"
-    COMMA: ","
-    DLLR: $
-    DOLLAR: $
-    DOT: .
-    DOUBLE_QUOTES: '"'
-    DQT: '"'
-    EQUAL: "="
-    EXCL: "!"
-    EXCLAMATION: "!"
-    FSLH: /
-    GRAVE: "`"
-    GREATER_THAN: ">"
-    GT: ">"
-    HASH: "#"
-    LBKT: "["
-    LBRC: "{"
-    LEFT_BRACE: "{"
-    LEFT_BRACKET: "["
-    LEFT_PARENTHESIS: (
-    LESS_THAN: <
-    LPAR: (
-    LT: <
-    MINUS: "-"
-    NON_US_BACKSLASH: \
-    NON_US_BSLH: "|"
-    NON_US_HASH: "#"
-    NUHS: "#"
-    PERCENT: "%"
-    PERIOD: .
-    PIPE: "|"
-    PIPE2: "|"
-    PLUS: +
-    POUND: "#"
-    PRCNT: "%"
-    QMARK: "?"
-    QUESTION: "?"
-    RBKT: "]"
-    RBRC: "}"
-    RIGHT_BRACE: "}"
-    RIGHT_BRACKET: "]"
-    RIGHT_PARENTHESIS: )
-    RPAR: )
-    SEMI: ;
-    SEMICOLON: ;
-    SINGLE_QUOTE: "'"
-    SLASH: /
-    SQT: "'"
-    STAR: "*"
-    TILDE: "~"
-    TILDE2: "~"
-    UNDER: _
-    UNDERSCORE: _
+    combo_cut: $$mdi:content-cut$$
+    combo_copy: $$mdi:content-copy$$
+    combo_paste: $$mdi:content-paste$$
+    combo_pipe_bslh:
+      tap:  "|"
+      hold: "\"
 
 zmk_combos:
-  combo_cut:
-    'k': { t: $$mdi:content-cut$$ }}
-  combo_copy:
-    'k': { t: $$mdi:content-copy$$ }}
-  combo_paste: 
-    'k': { t: $$mdi:content-paste$$ }
+  combo_cut: $$mdi:content-cut$$
+  combo_copy: $$mdi:content-copy$$
+  combo_paste: $$mdi:content-paste$$
   combo_pipe_bslh:
     tap:  "|"
     hold: "\"
