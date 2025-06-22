@@ -39,8 +39,8 @@ layers:
   - {t: DOWN, h: Ctl+END}
   - N
   - M
-  - {t: ',', s: ;}
-  - {t: ., s: ':'}
+  - {t: ',', s: <}
+  - {t: ., s: '>'}
   - {t: '?', s: '!'}
   - {t: RSHIFT, h: sticky, s: '&caps_word'}
   - {t: ESC, h: Sys}
