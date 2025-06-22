@@ -148,17 +148,17 @@ combo_##NAME { \
 / {
     behaviors {
       /omit-if-no-ref/ rgb_encoder: rgb_encoder {
-          compatible = "zmk,behavior-sensor-rotate";
-          #sensor-binding-cells = <0>;
-          bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
       };
   
       /omit-if-no-ref/ scroll_encoder: scroll_encoder {
-          compatible = "zmk,behavior-sensor-rotate";
-          #sensor-binding-cells = <0>;
-          bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-  
-          tap-ms = <100>;
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
+        tap-ms = <100>;
       };
 
       /*
@@ -234,16 +234,33 @@ combo_##NAME { \
         bindings = <&sl NUM>, <&num_word NUM>;
       };
 
+      // Smart-mouse, requires tri-state module.
+      /omit-if-no-ref/ smart_mouse: smart_mouse {
+        compatible = "zmk,behavior-tri-state";
+        #binding-cells = <0>;
+        bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
+        ignored-key-positions = <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
+        ignored-layers = <MOUSE NAV FN>;
+      };
+
+      // Alt+Tab swapper, requires tri-state module.
+      /omit-if-no-ref/ swapper: swapper {
+        compatible = "zmk,behavior-tri-state";
+        #binding-cells = <0>;
+        bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+        ignored-key-positions = <LT2 RT2 RM1 RM2 RM3>;
+      };
+
       /*
       - tap: reset keyboard
       - hold: enter bootloader mode
       */
       /omit-if-no-ref/ rst_boot: rst_boot {
-          compatible = "zmk,behavior-hold-tap";
-          flavor = "tap-preferred";
-          #binding-cells = <2>;
-          bindings = <&bootloader>, <&sys_reset>;
-          tapping-term-ms = <500>;
+        compatible = "zmk,behavior-hold-tap";
+        flavor = "tap-preferred";
+        #binding-cells = <2>;
+        bindings = <&bootloader>, <&sys_reset>;
+        tapping-term-ms = <500>;
       };
 
       /omit-if-no-ref/ masked_home: masked_home {
@@ -481,7 +498,8 @@ combo_##NAME { \
     //  │ 28  29  30  31  32  33 │ │ 34 │ │    35     │ │ 36  37  38  39  40  41 │
     //  ╰───────────╮ 42  43  44 │ ╰────╯ ╰───────────╯ │ 45  46  47 ╭───────────╯
     //              ╰────────────╯                      ╰────────────╯
-      // COMBO(smart_mouse, &kp ESC, LT3 LT2, DEF NAV NUM, 18, 150)
+    
+      COMBO(mouse, &smart_mouse, LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
     };
 
     keymap {
