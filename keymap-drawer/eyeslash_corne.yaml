@@ -294,3 +294,7 @@ layers:
   - CANCEL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+combos:
+- p: [3, 4]
+  k: '&smart_mouse'
+  l: [Base, Nav, Num]
