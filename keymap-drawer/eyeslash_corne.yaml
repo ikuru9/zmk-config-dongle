@@ -305,7 +305,7 @@ combos:
   k: Ctl+C
   l: [Base, Nav, Num]
 - p: [31, 32]
-  k: Sft+V
+  k: Ctl+V
   l: [Base, Nav, Num]
 - p: [11, 12]
   k: {t: '|', s: \}
