@@ -3,12 +3,11 @@ parse_config:
   raw_binding_map:
     # custom
     "&swapper": "Next Win"
-    "&kp LS(TAB)": "Prev Win"
     "&dot_spc": "Sentence"
     "&num_dance": { "t": "Numword", "s": "Sticky Num" }
     "&magic_shift": { "t": Magic, "h": "Shift" }
     "&smart_mouse": "Smart Mouse"
-    "&undo_redo": { "t": "Undo", "h": "Redo" }
+    "&undo_redo": { "t": $$mdi:undo$$, "h": $$mdi:redo$$ }
     "&lang_screen": "Lang"
     "esc_grave": 
       tap:     ESC
@@ -285,8 +284,12 @@ parse_config:
     RIGHT: →
     LA(LEFT): ↞
     LA(RIGHT): ↠
-    LG(LEFT): ⇤
+    LG(LEFT): ↞
     LG(RIGHT): ⇥
+    LA(UP): ↟
+    LA(DOWN): ↡
+    LG(UP): ↟
+    LG(DOWN): ↡
 
     CAPSLOCK: $$mdi:apple-keyboard-caps$$
     CAPS: $$mdi:apple-keyboard-caps$$
@@ -297,7 +300,8 @@ parse_config:
     LG(Z): $$mdi:undo$$
     LS(LG(Z)): $$mdi:redo$$
     LG(LC(F)): $$mdi:fullscreen$$
-    LG(LC(SPACE)): $$mdi:text-search$a
+    LG(LC(SPACE)): $$mdi:text-search$$
+    LG(LS(TAB)): "Prev Win"
 
     # Numbers
     N1:
