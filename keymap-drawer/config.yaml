@@ -112,14 +112,17 @@ draw_config:
 parse_config:
   raw_binding_map:
     # custom
-    "&swapper": Next Win
-    "&kp LS(TAB)": Prev Win
-    "&dot_spc": Sentence
+    "&swapper": "Next Win"
+    "&kp LS(TAB)": "Prev Win"
+    "&dot_spc": "Sentence"
     "&num_dance": { "t": "Numword", "s": "Sticky Num" }
     "&magic_shift": { "t": Magic, "h": "Shift" }
-    "&smart_mouse": Smart Mouse
-    "&undo_redo": { "t": Undo, "h": "Redo" }
-    "&lang_screen" Lang
+    "&smart_mouse": "Smart Mouse"
+    "&undo_redo": { "t": "Undo", "h": "Redo" }
+    "&lang_screen": "Lang"
+    "esc_grave": 
+      tap:     ESC
+      shifted: "`"
 
     # rgb
     '&rgb_ug RGB_TOG':
@@ -265,10 +268,6 @@ parse_config:
       shifted: $$mdi:bluetooth-connect$$
       tap: ""
       hold: 5
-    "&out OUT_TOG":
-      shifted: $$mdi:usb$$
-      tap: $$mdi:toggle-switch$$
-      hold: $$mdi:bluetooth$$
     "&bt BT_PRV":
       shifted: $$mdi:bluetooth-connect$$
       tap: ""
@@ -385,7 +384,6 @@ parse_config:
     INS: Insert
     HOME: Home
     END: End
-    CAPS: Caps Lock
     PSCRN: Print Scrn
     PAUSE_BREAK: Pause Break
     GLOBE: $$tabler:world$$
@@ -394,6 +392,10 @@ parse_config:
     DOWN: ↓
     LEFT: ←
     RIGHT: →
+    LA(LEFT): ↞
+    LA(RIGHT): ↠
+    LG(LEFT): ⇤
+    LG(RIGHT): ⇥
 
     CAPSLOCK: $$mdi:apple-keyboard-caps$$
     CAPS: $$mdi:apple-keyboard-caps$$
@@ -404,6 +406,7 @@ parse_config:
     LG(Z): $$mdi:undo$$
     LS(LG(Z)): $$mdi:redo$$
     LG(LC(F)): $$mdi:fullscreen$$
+    LG(LC(SPACE)): $$mdi:text-search$a
 
     # Numbers
     N1:
@@ -501,6 +504,3 @@ parse_config:
     TILDE2: '~'
     UNDER: _
     UNDERSCORE: _
-draw_config:
-  footer_text: 'Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a>'
-  dark_mode: auto
