@@ -133,12 +133,12 @@ combo_##NAME { \
 #define SMART_NUM &smart_num NUM 0
 // #define MAGIC_SHIFT &magic_shift LSHFT 0
 
-#define NAV_LEFT  &mt LG(LEFT)   LEFT  // Tap: left  | Long-tap: start of line.
-#define NAV_RIGHT &mt LG(RIGHT)    RIGHT // Tap: right | Long-tap: end   of line.
+#define NAV_LEFT  &mt LG(LEFT) LEFT  // Tap: left  | Long-tap: start of line.
+#define NAV_RIGHT &mt LG(RIGHT) RIGHT // Tap: right | Long-tap: end   of line.
 #define NAV_UP    &mt LG(UP) UP    // Tap: up    | Long-tap: start of doc.
-#define NAV_DOWN  &mt LG(DOWN)  DOWN  // Tap: down  | Long-tap: end   of doc.
+#define NAV_DOWN  &mt LG(DOWN) DOWN  // Tap: down  | Long-tap: end   of doc.
 #define NAV_BSPC  &mt LA(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
-#define NAV_DEL   &mt LA(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
+#define NAV_DEL   &mt LA(DEL) DEL   // Tap: del   | Long-tap: delete word fwd.
 
 #define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
 #define DSK_PREV  &hmr LCTL LG(LC(LEFT)) // Previous desktop.
@@ -222,7 +222,6 @@ combo_##NAME { \
         bindings = <&mo>, <&num_dance>;
         tapping-term-ms = <TAPPING_TERM_MS>;
       };
-
       /*
       - tap: &sl NUM
       - tap x 2: &num_word
@@ -264,38 +263,6 @@ combo_##NAME { \
         bindings = <&bootloader>, <&sys_reset>;
         tapping-term-ms = <500>;
       };
-
-      /omit-if-no-ref/ masked_home: masked_home {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp HOME>, <&kp HOME>;
-        mods = <(MOD_LGUI)>;
-      };
-      /omit-if-no-ref/ masked_end: masked_end {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp END>, <&kp END>;
-        mods = <(MOD_LGUI)>;
-      };
-      /omit-if-no-ref/ mt_home: mt_home {
-        compatible = "zmk,behavior-hold-tap";
-        flavor = "tap-preferred";
-        #binding-cells = <2>;
-        bindings = <&masked_home>, <&kp>;
-        tapping-term-ms = <220>;
-        quick-tap-ms = <220>;
-        hold-trigger-key-positions = <0>;
-      };
-      /omit-if-no-ref/ mt_end: mt_end {
-        compatible = "zmk,behavior-hold-tap";
-        flavor = "tap-preferred";
-        #binding-cells = <2>;
-        bindings = <&masked_end>, <&kp>;
-        tapping-term-ms = <220>;
-        quick-tap-ms = <220>;
-        hold-trigger-key-positions = <0>;
-      };
-
       /* Magic-shift & auto-layers */
       // Tap: repeat after alpha, else sticky-shift |
       // Shift + tap/ double-tap: caps-word | Hold: shift.
@@ -326,9 +293,9 @@ combo_##NAME { \
       // };
 
       /*
-        tab: space
-        shift + tab: dot > space > sticky shift
-        hold: nav layer
+      - tab: space
+      - shift + tab: dot > space > sticky shift
+      - hold: fn layer
       */
       /omit-if-no-ref/ lt_spc: lt_spc {
         compatible = "zmk,behavior-hold-tap";
@@ -370,7 +337,7 @@ combo_##NAME { \
       /*
         - tab: comma
         - shift + tab: <
-        - gui + shift + tab: semicolon
+        - gui + alt + tab: semicolon
       */
       /omit-if-no-ref/ inner_comma_morph: inner_comma_morph {
         compatible = "zmk,behavior-mod-morph";
@@ -382,13 +349,13 @@ combo_##NAME { \
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp COMMA>, <&inner_comma_morph>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
+        mods = <(MOD_LALT|MOD_RALT)>;
       };
 
       /*
         - tab: dot
         - shift + tab: >
-        - gui + shift + tab: colon
+        - gui + alt + tab: colon
       */
       /omit-if-no-ref/ inner_dot_morph: inner_dot_morph {
         compatible = "zmk,behavior-mod-morph";
@@ -400,7 +367,7 @@ combo_##NAME { \
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp DOT>, <&inner_dot_morph>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
+        mods = <(MOD_LALT|MOD_RALT)>;
       };
 
       /*
@@ -415,17 +382,6 @@ combo_##NAME { \
       };
 
       /*
-        - tab: qmark
-        - shift tab: excl
-      */
-      /omit-if-no-ref/ pipe_bslh: pipe_bslh {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp PIPE>, <&kp BSLH>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-      };
-
-      /*
         - tab: undo
         - tab x2: redo
       */
@@ -433,7 +389,7 @@ combo_##NAME { \
         compatible = "zmk,behavior-tap-dance";
         tapping-term-ms = <TAPPING_TERM_MS>;
         #binding-cells = <0>;
-        bindings = <&kp LG(Z)>, <&kp LG(LS(Z))>;
+        bindings = <&kp LG(Z)>, <&kp LS(LG(Z))>;
       };
 
       /*
@@ -549,7 +505,14 @@ combo_##NAME { \
       COMBO(copy,       &kp LG(C),    LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(paste,      &kp LG(V),    LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(pipe_bslh,  &pipe_bslh,   RT4 RT5,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      
+      COMBO(bslh,       &kp BSLH,     RT0 RT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(fslh,       &kp FSLH,     RT1 RT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+      COMBO(pipe,       &kp PIPE,     RM4 RM5,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+      COMBO(lpar,       &kp LPAR,     RM1 RM2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(rpar,       &kp RPAR,     RM2 RM3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
       COMBO(lbkt,       &kp LBKT,     RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(rbkt,       &kp RBKT,     RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
@@ -573,13 +536,13 @@ combo_##NAME { \
         display-name = "Base";
         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &esc_grave    &kp Q         &kp W         &kp E         &kp R         &kp T                                           NAV_UP                         &kp Y         &kp U         &kp I         &kp O         &kp P         &hmr MINUS EQUAL
+    &esc_grave    &kp Q         &kp W         &kp E         &kp R         &kp T                                           NAV_UP                         &kp Y         &kp U         &kp I         &kp O         &kp P         &hmr UNDER MINUS
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &undo_redo    &kp A         &hml LCTL S   &hml LALT D  &hml LGUI F    &kp G                             NAV_LEFT      &kp RET       NAV_RIGHT        &kp H         &hmr LGUI J   &hmr LALT K   &hmr LCTL L   &kp SQT       &hmr EQUAL PLUS 
+    &undo_redo    &kp A         &hml LCTL S   &hml LALT D  &hml LGUI F    &kp G                             NAV_LEFT      &kp RET       NAV_RIGHT        &kp H         &hmr LGUI J   &hmr LALT K   &hmr LCTL L   &hmr SQT DQT  &hmr EQUAL PLUS 
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mt LSHFT TAB &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &qexcl        &smart_shift
+    &mt LSHFT TAB &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &hmr SLASH QMARK &smart_shift
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                              XXX           SMART_NUM     &lt_spc FN 0                                                                   &lt NUM RET   &bkspc_del    &lang_screen
+                                              XXX           &bkspc_del    &lt_spc FN 0                                                                   &lt NUM RET   &bkspc_del    &lang_screen
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
         >;
         sensor-bindings = <&scroll_encoder>;
@@ -589,7 +552,7 @@ combo_##NAME { \
         display-name = "Nav";
         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           XXX           XXX           &kp LG(LS(TAB))   &swapper      XXX                                             ___                            &kp LG(LC(F)) XXX           NAV_UP        XXX           XXX           XXX
+    ___           XXX           XXX           &kp LG(LS(TAB)) &swapper    XXX                                             ___                            XXX           XXX           NAV_UP        XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           XXX           &sk LCTL      &sk LALT     &sk LGUI       XXX                               ___           ___           ___              XXX           NAV_LEFT      NAV_DOWN      NAV_RIGHT     XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -605,13 +568,13 @@ combo_##NAME { \
         display-name = "Fn";
         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    XXX           &kp F12       &kp F7        &kp F8        &kp F9        XXX                                             ___                            XXX           &kp C_PREV    &kp C_PP      &kp C_NEXT           XXX           XXX
+    XXX           &kp F12       &kp F7        &kp F8        &kp F9        XXX                                             ___                            &kp LG(LC(F)) XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           &kp F11       &hml LCTL F4  &hml LALT F5 &hml LGUI F6   XXX                               ___           ___           ___              XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           &kp F10       &kp F1        &kp F2        &kp F3        XXX              ___                            ___                            XXX           XXX           XXX           XXX           XXX           XXX
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                              XXX           XXX           XXX                                                                            XXX           XXX           CANCEL
+                                              XXX           XXX           XXX                                                                            &kp C_PP      &kp C_PREV    &kp C_NEXT 
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
         >;
         sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -623,9 +586,9 @@ combo_##NAME { \
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     XXX           XXX           &kp N7        &kp N8        &kp N9        XXX                                             ___                            XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           &kp N0        &hml LCTL N4  &hml LSHFT N5 &hml LGUI N6  XXX                               ___           ___           ___              XXX           ___           ___           ___           ___           XXX
+    XXX           &kp N0        &hml LCTL N4  &hml LSHFT N5 &hml LGUI N6  XXX                               ___           ___           ___              XXX           &kp LGUI      &kp LALT      &kp LCTL      ___           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp N1        &kp N2        &kp N3        XXX              ___                            ___                            XXX           XXX           XXX           XXX           XXX           XXX
+    XXX           XXX           &kp N1        &kp N2        &kp N3        XXX              ___                            ___                            XXX           XXX           XXX           XXX           XXX           &smart_shift
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                               ___           ___           ___                                                                            ___           ___           CANCEL
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
@@ -655,9 +618,9 @@ combo_##NAME { \
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           ___           ___           ___           U_WH_U        ___                                             U_MS_U                         ___           U_MS_U        ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mkp LCLK     &mkp MCLK     &mkp RCLK     U_WH_L        ___           U_WH_R                            U_MS_L        &mkp LCLK     U_MS_R           U_MS_L        XXX           U_MS_R       &mkp LCLK     &mkp MCLK     &mkp RCLK
+    ___           ___           ___           U_WH_L        U_WH_D        U_WH_R                            U_MS_L        &mkp LCLK     U_MS_R           U_MS_L        U_MS_D        U_MS_R        ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           U_WH_D        ___              ___                            U_MS_D                         ___           U_MS_D        ___           ___           ___           ___
+    ___           ___           ___           &mkp LCLK     &mkp MCLK     &mkp RCLK        ___                            U_MS_D                         &mkp LCLK     &mkp MCLK     &mkp RCLK     ___           ___           ___
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                               ___           ___           ___                                                                            ___           ___           CANCEL
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
