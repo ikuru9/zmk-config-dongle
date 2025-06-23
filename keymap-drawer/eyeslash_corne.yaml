@@ -28,7 +28,7 @@ layers:
   - {t: K, s: '$$mdi:apple-keyboard-option$$'}
   - {t: L, s: '$$mdi:apple-keyboard-control$$'}
   - {t: '''', h: '"'}
-  - {t: +, h: '='}
+  - {t: '=', h: +}
   - {t: ↹, h: '$$mdi:apple-keyboard-shift$$'}
   - Z
   - X
@@ -39,8 +39,8 @@ layers:
   - {t: ↓, h: ↡}
   - N
   - M
-  - {t: ',', s: <}
-  - {t: ., s: '>'}
+  - {t: ',', s: ;}
+  - {t: ., s: /}
   - {t: '?', h: /}
   - {t: '$$mdi:apple-keyboard-shift$$', h: sticky, s: '$$mdi:alpha-w-box$$'}
   - {type: none}
@@ -48,7 +48,7 @@ layers:
   - {t: ␣, h: Fn, s: '$$mdi:text-search$$'}
   - {t: ⏎, h: Num}
   - {t: '$$mdi:backspace$$', s: '$$mdi:backspace-reverse-outline$$', type: backspace}
-  - Lang
+  - $$tabler:world$$
   Nav:
   - {t: ▽, type: trans}
   - {type: none}
@@ -309,11 +309,8 @@ combos:
 - p: [31, 32]
   k: $$mdi:content-paste$$
   l: [Base, Nav, Num]
-- p: [7, 8]
+- p: [11, 12]
   k: \
-  l: [Base, Nav, Num]
-- p: [8, 9]
-  k: /
   l: [Base, Nav, Num]
 - p: [26, 27]
   k: '|'
