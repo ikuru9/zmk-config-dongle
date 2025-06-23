@@ -123,11 +123,11 @@ parse_config:
       tap: $$mdi:mouse$$
       right: $$mdi:menu-right$$
     "&mmv MOVE_UP":
-      tap: $$mdi:menu-up$$
-      shifted: $$mdi:mouse$$
+      tap: $$mdi:mouse$$
+      shifted: $$mdi:menu-up$$
     "&mmv MOVE_DOWN":
       tap: $$mdi:mouse$$
-      hold: $$mdi:mouse$$
+      hold: $$mdi:menu-down$$
     "&mkp LCLK":
       tap: $$mdi:mouse-left-click-outline$$
     "&mkp RCLK":
