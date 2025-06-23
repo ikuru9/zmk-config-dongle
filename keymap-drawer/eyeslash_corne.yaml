@@ -43,7 +43,7 @@ layers:
   - {t: ., h: '>', s: /}
   - {t: '?', h: '!'}
   - {t: '$$mdi:apple-keyboard-shift$$', h: sticky, s: '$$mdi:alpha-w-box$$'}
-  - $$mdi:keyboard-esc$$
+  - "&\blt 2 ESC"
   - {t: '$$mdi:apple-keyboard-shift$$', h: sticky, s: '$$mdi:alpha-w-box$$'}
   - {t: '$$mdi:keyboard-space$$', h: Nav, s: '$$mdi:text-search$$'}
   - {t: '$$mdi:keyboard-return$$', h: Num}
@@ -252,9 +252,9 @@ layers:
   - {t: ▽, type: trans}
   - $$mdi:pan-up$$
   - {t: ▽, type: trans}
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:menu-up$$'}
   - {t: ▽, type: trans}
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:menu-up$$'}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -269,7 +269,7 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:mouse$$', right: '$$mdi:menu-right$$'}
   - {t: '$$mdi:mouse$$', left: '$$mdi:menu-left$$'}
-  - {t: '$$mdi:mouse$$', h: '$$mdi:mouse$$'}
+  - {t: '$$mdi:mouse$$', h: '$$mdi:menu-down$$'}
   - {t: '$$mdi:mouse$$', right: '$$mdi:menu-right$$'}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -281,7 +281,7 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
   - {t: ▽, type: trans}
-  - {t: '$$mdi:mouse$$', h: '$$mdi:mouse$$'}
+  - {t: '$$mdi:mouse$$', h: '$$mdi:menu-down$$'}
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
