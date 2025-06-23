@@ -41,7 +41,7 @@ layers:
   - M
   - {t: ',', h: <, s: ;}
   - {t: ., h: '>', s: /}
-  - {t: '!', h: '?'}
+  - {t: '?', h: '!'}
   - {t: '$$mdi:apple-keyboard-shift$$', h: sticky, s: '$$mdi:alpha-w-box$$'}
   - {type: none}
   - {t: ⌫, h: Nav}
