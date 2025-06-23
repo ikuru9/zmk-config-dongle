@@ -228,9 +228,11 @@ parse_config:
     RIGHT_SHIFT: $$mdi:apple-keyboard-shift$$
     RS: $$mdi:apple-keyboard-shift$$
     RC: $$mdi:apple-keyboard-control$$
+    RCTL: $$mdi:apple-keyboard-control$$
     RCTRL: $$mdi:apple-keyboard-control$$
     RIGHT_CONTROL: $$mdi:apple-keyboard-control$$
     LC: $$mdi:apple-keyboard-control$$
+    LCTL: $$mdi:apple-keyboard-control$$
     LCTRL: $$mdi:apple-keyboard-control$$
     LEFT_CONTROL: $$mdi:apple-keyboard-control$$
 
@@ -299,9 +301,9 @@ parse_config:
     LG(V): $$mdi:content-paste$$
     LG(Z): $$mdi:undo$$
     LS(LG(Z)): $$mdi:redo$$
-    LG(LC(F)): $$mdi:fullscreen$$
-    LG(LC(SPACE)): $$mdi:text-search$$
-    LG(LS(TAB)): "Prev Win"
+    LC(LG(F)): $$mdi:fullscreen$$
+    LC(LG(SPACE)): $$mdi:text-search$$
+    LS(LG(TAB)): "Prev Win"
 
     # Numbers
     N1:
