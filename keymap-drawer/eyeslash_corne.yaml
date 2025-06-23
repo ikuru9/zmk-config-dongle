@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - {t: UP, h: Ctl+HOME}
+  - {t: UP, h: Gui+UP}
   - Y
   - U
   - I
@@ -15,19 +15,19 @@ layers:
   - P
   - {t: '=', h: '-'}
   - '&undo_redo'
-  - {t: A, h: LGUI}
-  - {t: S, h: LALT}
-  - {t: D, h: LSHFT}
-  - {t: F, h: LCTRL}
+  - A
+  - {t: S, h: LCTL}
+  - {t: D, h: LALT}
+  - {t: F, h: LGUI}
   - G
-  - {t: LEFT, h: HOME}
+  - {t: LEFT, h: Gui+LEFT}
   - RET
-  - {t: RIGHT, h: END}
+  - {t: RIGHT, h: Gui+RIGHT}
   - H
-  - {t: J, h: LCTRL}
-  - {t: K, h: RSHFT}
-  - {t: L, h: LALT}
-  - {t: '''', h: LGUI}
+  - {t: J, h: LGUI}
+  - {t: K, h: LALT}
+  - {t: L, h: LCTL}
+  - ''''
   - {t: +, h: '='}
   - {t: TAB, h: LSHFT}
   - Z
@@ -36,7 +36,7 @@ layers:
   - V
   - B
   - RET
-  - {t: DOWN, h: Ctl+END}
+  - {t: DOWN, h: Gui+DOWN}
   - N
   - M
   - {t: ',', s: <}
@@ -53,29 +53,29 @@ layers:
   - {t: ▽, type: trans}
   - ''
   - ''
-  - Sft+TAB
+  - Gui+Sft+TAB
   - '&swapper'
   - ''
   - {t: ▽, type: trans}
-  - Ctl+Alt+F
+  - Gui+Ctl+F
   - ''
-  - {t: UP, h: Ctl+HOME}
+  - {t: UP, h: Gui+UP}
   - ''
   - ''
   - ''
   - {t: ▽, type: trans}
-  - {t: LGUI, h: sticky}
+  - ''
+  - {t: LCTL, h: sticky}
   - {t: LALT, h: sticky}
-  - {t: LSHFT, h: sticky}
-  - {t: LCTRL, h: sticky}
+  - {t: LGUI, h: sticky}
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
-  - {t: LEFT, h: HOME}
-  - {t: DOWN, h: Ctl+END}
-  - {t: RIGHT, h: END}
+  - {t: LEFT, h: Gui+LEFT}
+  - {t: DOWN, h: Gui+DOWN}
+  - {t: RIGHT, h: Gui+RIGHT}
   - ''
   - ''
   - {t: ▽, type: trans}
@@ -113,10 +113,10 @@ layers:
   - ''
   - ''
   - ''
-  - {t: F11, h: LGUI}
-  - {t: F4, h: LALT}
-  - {t: F5, h: LSHFT}
-  - {t: F6, h: LCTRL}
+  - F11
+  - {t: F4, h: LCTL}
+  - {t: F5, h: LALT}
+  - {t: F6, h: LGUI}
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -162,10 +162,10 @@ layers:
   - ''
   - ''
   - ''
-  - {t: '0', h: LGUI}
-  - {t: '4', h: LALT}
+  - '0'
+  - {t: '4', h: LCTL}
   - {t: '5', h: LSHFT}
-  - {t: '6', h: LCTRL}
+  - {t: '6', h: LGUI}
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -299,13 +299,13 @@ combos:
   k: '&smart_mouse'
   l: [Base, Nav, Num]
 - p: [30, 32]
-  k: Ctl+X
+  k: Gui+X
   l: [Base, Nav, Num]
 - p: [30, 31]
-  k: Ctl+C
+  k: Gui+C
   l: [Base, Nav, Num]
 - p: [31, 32]
-  k: Ctl+V
+  k: Gui+V
   l: [Base, Nav, Num]
 - p: [11, 12]
   k: {t: '|', s: \}
