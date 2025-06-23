@@ -301,35 +301,35 @@ combos:
   a: top
 - p: [30, 32]
   k: $$mdi:content-cut$$
-  l: [Base, Nav, Num]
+  l: [Base, Nav]
   a: bottom
 - p: [30, 31]
   k: $$mdi:content-copy$$
-  l: [Base, Nav, Num]
+  l: [Base, Nav]
 - p: [31, 32]
   k: $$mdi:content-paste$$
-  l: [Base, Nav, Num]
+  l: [Base, Nav]
 - p: [11, 12]
   k: \
-  l: [Base, Nav, Num]
+  l: [Base]
 - p: [26, 27]
   k: '|'
-  l: [Base, Nav, Num]
+  l: [Base]
 - p: [23, 24]
   k: (
-  l: [Base, Num]
+  l: [Base]
 - p: [24, 25]
   k: )
-  l: [Base, Num]
+  l: [Base]
+- p: [37, 38]
+  k: '{'
+  l: [Base]
+- p: [38, 39]
+  k: '}'
+  l: [Base]
 - p: [37, 38]
   k: {h: '[', s: '{'}
   l: [Nav]
 - p: [38, 39]
   k: {h: ']', s: '}'}
   l: [Nav]
-- p: [37, 38]
-  k: '{'
-  l: [Base, Num]
-- p: [38, 39]
-  k: '}'
-  l: [Base, Num]
