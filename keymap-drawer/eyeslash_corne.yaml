@@ -7,20 +7,20 @@ layers:
   - E
   - R
   - T
-  - {t: ↑, h: Gui+↑}
+  - {t: ↑, h: ↟}
   - Y
   - U
   - I
   - O
   - P
   - {t: '-', h: _}
-  - {t: Undo, h: Redo}
+  - {t: '$$mdi:undo$$', h: '$$mdi:redo$$'}
   - A
   - {t: S, s: '$$mdi:apple-keyboard-control$$'}
   - {t: D, s: '$$mdi:apple-keyboard-option$$'}
   - {t: F, s: '$$mdi:apple-keyboard-command$$'}
   - G
-  - {t: ←, h: ⇤}
+  - {t: ←, h: ↞}
   - ⏎
   - {t: →, h: ⇥}
   - H
@@ -36,7 +36,7 @@ layers:
   - V
   - B
   - ⏎
-  - {t: ↓, h: Gui+↓}
+  - {t: ↓, h: ↡}
   - N
   - M
   - {t: ',', s: <}
@@ -45,7 +45,7 @@ layers:
   - {t: '$$mdi:apple-keyboard-shift$$', h: sticky, s: '$$mdi:alpha-w-box$$'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: ⌫, h: Nav}
-  - {t: ␣, h: Fn, s: '$$mdi:text-search$a'}
+  - {t: ␣, h: Fn, s: '$$mdi:text-search$$'}
   - {t: ⏎, h: Num}
   - {t: '$$mdi:backspace$$', s: '$$mdi:backspace-reverse-outline$$', type: backspace}
   - Lang
@@ -53,13 +53,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - Gui+Sft+↹
+  - Prev Win
   - Next Win
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: ▽, type: trans}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: ↑, h: Gui+↑}
+  - {t: ↑, h: ↟}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -73,8 +73,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: ←, h: ⇤}
-  - {t: ↓, h: Gui+↓}
+  - {t: ←, h: ↞}
+  - {t: ↓, h: ↡}
   - {t: →, h: ⇥}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
