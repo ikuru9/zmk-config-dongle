@@ -186,9 +186,9 @@ layers:
   - {t: ▽, type: trans}
   - {type: none}
   - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: '$$mdi:apple-keyboard-shift$$', h: sticky, s: '$$mdi:alpha-w-box$$'}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
