@@ -13,7 +13,7 @@ layers:
   - I
   - O
   - P
-  - {t: '=', h: '-'}
+  - {t: '-', h: _}
   - '&undo_redo'
   - A
   - {t: S, h: LCTL}
@@ -27,7 +27,7 @@ layers:
   - {t: J, h: LGUI}
   - {t: K, h: LALT}
   - {t: L, h: LCTL}
-  - ''''
+  - {t: '"', h: ''''}
   - {t: +, h: '='}
   - {t: TAB, h: LSHFT}
   - Z
@@ -41,10 +41,10 @@ layers:
   - M
   - {t: ',', s: <}
   - {t: ., s: '>'}
-  - {t: '?', s: '!'}
+  - {t: '?', h: /}
   - {t: RSHFT, h: sticky, s: '&caps_word'}
   - ''
-  - {t: '&num_dance', h: Num}
+  - {t: BACKSPACE, s: DELETE}
   - {t: SPACE, h: Fn, s: '&dot_spc'}
   - {t: RET, h: Num}
   - {t: BACKSPACE, s: DELETE}
@@ -57,7 +57,7 @@ layers:
   - '&swapper'
   - ''
   - {t: ▽, type: trans}
-  - Gui+Ctl+F
+  - ''
   - ''
   - {t: UP, h: Gui+UP}
   - ''
@@ -106,10 +106,10 @@ layers:
   - F9
   - ''
   - {t: ▽, type: trans}
+  - Gui+Ctl+F
   - ''
-  - PREV
-  - PP
-  - NEXT
+  - ''
+  - ''
   - ''
   - ''
   - ''
@@ -144,9 +144,9 @@ layers:
   - ''
   - ''
   - {type: held}
-  - ''
-  - ''
-  - CANCEL
+  - PP
+  - PREV
+  - NEXT
   Num:
   - ''
   - ''
@@ -171,9 +171,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - LGUI
+  - LALT
+  - LCTL
   - {t: ▽, type: trans}
   - ''
   - ''
@@ -189,11 +189,11 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - {t: RSHFT, h: sticky, s: '&caps_word'}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - CANCEL
   Sys:
@@ -240,9 +240,9 @@ layers:
   - '&sys_reset'
   - '&bootloader'
   - {t: ▽, type: trans}
-  - {type: held}
-  - {type: held}
   - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
   - {t: ▽, type: trans}
   - CANCEL
   Mouse:
@@ -259,32 +259,32 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mkp LCLK'
-  - '&mkp MCLK'
-  - '&mkp RCLK'
-  - '&msc SCRL_LEFT'
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&msc SCRL_LEFT'
+  - '&msc SCRL_DOWN'
   - '&msc SCRL_RIGHT'
   - '&mmv MOVE_LEFT'
   - '&mkp LCLK'
   - '&mmv MOVE_RIGHT'
   - '&mmv MOVE_LEFT'
-  - ''
+  - '&mmv MOVE_DOWN'
   - '&mmv MOVE_RIGHT'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - '&mkp LCLK'
   - '&mkp MCLK'
   - '&mkp RCLK'
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_DOWN'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - '&mmv MOVE_DOWN'
-  - {t: ▽, type: trans}
-  - '&mmv MOVE_DOWN'
-  - {t: ▽, type: trans}
+  - '&mkp LCLK'
+  - '&mkp MCLK'
+  - '&mkp RCLK'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -307,9 +307,21 @@ combos:
 - p: [31, 32]
   k: Gui+V
   l: [Base, Nav, Num]
-- p: [11, 12]
-  k: {t: '|', s: \}
+- p: [7, 8]
+  k: \
   l: [Base, Nav, Num]
+- p: [8, 9]
+  k: /
+  l: [Base, Nav, Num]
+- p: [26, 27]
+  k: '|'
+  l: [Base, Nav, Num]
+- p: [23, 24]
+  k: (
+  l: [Base, Num]
+- p: [24, 25]
+  k: )
+  l: [Base, Num]
 - p: [37, 38]
   k: '['
   l: [Nav]
