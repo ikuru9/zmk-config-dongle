@@ -4,11 +4,25 @@ parse_config:
     # custom
     "&swapper": "Next Win"
     "&dot_spc": "Sentence"
-    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
-    "&magic_shift": { "t": Magic, "h": "Shift" }
+    "&num_dance":
+      tap: "Numword"
+      shiftedd: "Sticky Num"
+    "&magic_shift": 
+      tap: "Magic"
+      hold: "Shift"
     "&smart_mouse": "Smart Mouse"
-    "&undo_redo": { "t": $$mdi:undo$$, "h": $$mdi:redo$$ }
+    "&undo_redo": 
+      tap: $$mdi:undo$$
+      hold: $$mdi:redo$$
     "&lang_screen": $$tabler:world$$
+    "&comma_morph": 
+      tap: ","
+      hold: "<"
+      shifted: ";"
+    "&dot_morph": 
+      tap: "."
+      hold: ">"
+      shifted: "/"
     "esc_grave": 
       tap:     ESC
       shifted: "`"

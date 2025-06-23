@@ -340,13 +340,13 @@ combo_##NAME { \
       /omit-if-no-ref/ comma_morph: comma_morph {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp COMMA>, <&kp SEMICOLON>;
+        bindings = <&hmr LESS_THAN COMMA>, <&hmr SEMICOLON COLON>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
       /*
       - tap: dot
-      - hold: grater_then
+      - hold: grater_than
       - shift + tap: slash
       - shift + hold: question
 
@@ -355,18 +355,7 @@ combo_##NAME { \
       /omit-if-no-ref/ dot_morph: dot_morph {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp DOT>, <&kp FSLH>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-      };
-
-      /*
-        - tab: qmark
-        - shift tab: excl
-      */
-      /omit-if-no-ref/ qexcl: qexcl {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp QMARK>, <&kp EXCL>;
+        bindings = <&hmr GREATER_THAN DOT>, <&hmr SLASH QUESTION>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
@@ -526,7 +515,7 @@ combo_##NAME { \
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &undo_redo    &kp A         &hml LCTL S   &hml LALT D  &hml LGUI F    &kp G                             NAV_LEFT      &kp RET       NAV_RIGHT        &kp H         &hmr LGUI J   &hmr LALT K   &hmr LCTL L   &hmr DQT SQT  &hmr PLUS EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mt LSHFT TAB &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &hmr SLASH QMARK &smart_shift
+    &mt LSHFT TAB &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &hmr QMARK EXCL &smart_shift
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                               XXX          &lt NAV BSPC  &lt_spc FN 0                                                                   &lt NUM RET   &bkspc_del     &lang_screen
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
