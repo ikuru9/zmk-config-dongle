@@ -340,7 +340,7 @@ combo_##NAME { \
       /omit-if-no-ref/ comma_morph: comma_morph {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&hmr LESS_THAN COMMA>, <&hmr SEMICOLON COLON>;
+        bindings = <&hmr LESS_THAN COMMA>, <&hmr COLON SEMICOLON>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
@@ -355,7 +355,7 @@ combo_##NAME { \
       /omit-if-no-ref/ dot_morph: dot_morph {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&hmr GREATER_THAN DOT>, <&hmr SLASH QUESTION>;
+        bindings = <&hmr GREATER_THAN DOT>, <&hmr QUESTION SLASH>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
