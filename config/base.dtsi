@@ -330,39 +330,33 @@ combo_##NAME { \
       };
 
       /*
-        - tab: comma
-        - shift + tab: <
-        - ctrl + alt + tab: semicolon
+      - tap: comma
+      - hold: less_than
+      - shift + tap: semicolon
+      - shift + hold: colon
+
+      From: https://zmk.dev/docs/behaviors/mod-morph#advanced-configuration
       */
-      /omit-if-no-ref/ inner_comma_morph: inner_comma_morph {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp LESS_THAN>, <&kp SEMICOLON>;
-        mods = <(MOD_LCTL|MOD_RCTL)>;
-      };
       /omit-if-no-ref/ comma_morph: comma_morph {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp COMMA>, <&inner_comma_morph>;
-        mods = <(MOD_LALT|MOD_RALT)>;
+        bindings = <&kp COMMA>, <&kp SEMICOLON>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
       /*
-        - tab: dot
-        - shift + tab: >
-        - ctrl + alt + tab: colon
+      - tap: dot
+      - hold: grater_then
+      - shift + tap: slash
+      - shift + hold: question
+
+      From: https://zmk.dev/docs/behaviors/mod-morph#advanced-configuration
       */
-      /omit-if-no-ref/ inner_dot_morph: inner_dot_morph {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp GREATER_THAN>, <&kp COLON>;
-        mods = <(MOD_LCTL|MOD_RCTL)>;
-      };
       /omit-if-no-ref/ dot_morph: dot_morph {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp DOT>, <&inner_dot_morph>;
-        mods = <(MOD_LALT|MOD_RALT)>;
+        bindings = <&kp DOT>, <&kp FSLH>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
       /*
@@ -500,10 +494,7 @@ combo_##NAME { \
       COMBO(copy,       &kp LG(C),    LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(paste,      &kp LG(V),    LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      
-      COMBO(bslh,       &kp BSLH,     RT0 RT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(fslh,       &kp FSLH,     RT1 RT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
+      COMBO(bslh,       &kp BSLH,     RT4 RT5,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(pipe,       &kp PIPE,     RM4 RM5,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
       COMBO(lpar,       &kp LPAR,     RM1 RM2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
@@ -533,11 +524,11 @@ combo_##NAME { \
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                 ╭─────────────╮                ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &esc_grave    &kp Q         &kp W         &kp E         &kp R         &kp T                                           NAV_UP                         &kp Y         &kp U         &kp I         &kp O         &kp P         &hmr UNDER MINUS
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &undo_redo    &kp A         &hml LCTL S   &hml LALT D  &hml LGUI F    &kp G                             NAV_LEFT      &kp RET       NAV_RIGHT        &kp H         &hmr LGUI J   &hmr LALT K   &hmr LCTL L   &hmr DQT SQT  &hmr EQUAL PLUS 
+    &undo_redo    &kp A         &hml LCTL S   &hml LALT D  &hml LGUI F    &kp G                             NAV_LEFT      &kp RET       NAV_RIGHT        &kp H         &hmr LGUI J   &hmr LALT K   &hmr LCTL L   &hmr DQT SQT  &hmr PLUS EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &mt LSHFT TAB &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &hmr SLASH QMARK &smart_shift
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                              XXX          &lt NAV BSPC  &lt_spc FN 0                                                                   &lt NUM RET   &bkspc_del    &lang_screen
+                                              XXX          &lt NAV BSPC  &lt_spc FN 0                                                                   &lt NUM RET   &bkspc_del     &lang_screen
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
         >;
         sensor-bindings = <&scroll_encoder>;

@@ -8,7 +8,7 @@ parse_config:
     "&magic_shift": { "t": Magic, "h": "Shift" }
     "&smart_mouse": "Smart Mouse"
     "&undo_redo": { "t": $$mdi:undo$$, "h": $$mdi:redo$$ }
-    "&lang_screen": "Lang"
+    "&lang_screen": $$tabler:world$$
     "esc_grave": 
       tap:     ESC
       shifted: "`"
