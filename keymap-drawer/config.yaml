@@ -298,14 +298,14 @@ parse_config:
     DOWN: ↓
     LEFT: ←
     RIGHT: →
-    LA(LEFT): ↞
-    LA(RIGHT): ↠
-    LG(LEFT): ↞
-    LG(RIGHT): ⇥
-    LA(UP): ↟
-    LA(DOWN): ↡
-    LG(UP): ↟
-    LG(DOWN): ↡
+    LA(LEFT): $$mdi:arrow-collapse-left$$
+    LA(RIGHT): $$mdi:arrow-collapse-right$$
+    LG(LEFT): $$mdi:arrow-collapse-left$$
+    LG(RIGHT): $$mdi:arrow-collapse-right$$
+    LA(UP): $$mdi:arrow-collapse-up$$
+    LA(DOWN): $$mdi:arrow-collapse-down$$
+    LG(UP): $$mdi:arrow-collapse-up$$
+    LG(DOWN): $$mdi:arrow-collapse-down$$
 
     CAPSLOCK: $$mdi:apple-keyboard-caps$$
     CAPS: $$mdi:apple-keyboard-caps$$
@@ -318,6 +318,10 @@ parse_config:
     LC(LG(F)): $$mdi:fullscreen$$
     LC(LG(SPACE)): $$mdi:text-search$$
     LS(LG(TAB)): "Prev Win"
+    LC(LA(LG(LEFT))): 
+      tap: $$mdi:arrow-left-bold$$
+    LC(LA(LG(RIGHT))): 
+      tap: $$mdi:arrow-right-bold$$
 
     # Numbers
     N1:
