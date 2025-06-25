@@ -108,22 +108,6 @@
   };
 };
 
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                  \
-/ {                                                                             \
-  behaviors {       \
-    NAME: NAME { \
-      compatible = "zmk,behavior-hold-tap"; \
-      flavor = "balanced"; \
-      #binding-cells = <2>; \
-      bindings = <HOLD>, <TAP>; \
-      hold-trigger-key-positions = <TRIGGER_POS>; \
-      hold-trigger-on-release; \
-      tapping-term-ms = <TAPPING_TERM_MS>; \
-      quick-tap-ms = <QUICK_TAP_MS>; \
-      require-prior-idle-ms = <REQUIRE_PRIOR_IDLE_MS>; \
-  }; \
-}; \
-
 /* Copied (modified) from https://github.com/caksoylar/zmk-config */
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TIMEOUT, IDLE) \
 combo_##NAME { \
@@ -133,10 +117,6 @@ combo_##NAME { \
   timeout-ms = <TIMEOUT>; \
   require-prior-idle-ms = <IDLE>; \
 };
-
-#define COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
-  MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
-  COMBO(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
 
 #define U_MS_U &mmv MOVE_UP
@@ -548,7 +528,7 @@ combo_##NAME { \
     //                ╰───────────────╯                           ╰───────────────╯
     
       /* Horizontal combos - left hand */
-      COMBO(esc,   &kp ESC,      LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(esc,   &kp ESC,          LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(mouse, &smart_mouse,     LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(tab,   &hml LS(LGUI)TAB, LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
@@ -560,14 +540,12 @@ combo_##NAME { \
       COMBO(bslh,  &kp BSLH,     RT4 RT5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(pipe,  &kp PIPE,     RM4 RM5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO_8(lpar,  &lpar_lt,     RM1 RM2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL),    KEYS_L)
-      COMBO_8(rpar,  &rpar_gt,     RM2 RM3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT),     KEYS_L)COMBO(lt,    &kp LT,       RM1 RM2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(gt,    &kp GT,       RM2 RM3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-
-      COMBO(lbkt,  &kp LBKT,     RB1 RB2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(rbkt,  &kp RBKT,     RB2 RB3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(lbrc,  &kp LBRC,     RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(rbrc,  &kp RBRC,     RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(lbkt,  &kp LBKT,     RT1 RT2,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(rbkt,  &kp RBKT,     RT2 RT3,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(lt,    &kp LT,       RM1 RM2,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(gt,    &kp GT,       RM2 RM3,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(lbrc,  &kp LBRC,     RB1 RB2,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(rbrc,  &kp RBRC,     RB2 RB3,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
     };
 
     conditional_layers {
