@@ -56,9 +56,9 @@
   continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL RSHIFT LEFT RIGHT UP DOWN>;
 };
 
-// &caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
-//   /delete-property/ ignore-modifiers;
-// };
+&caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
+  /delete-property/ ignore-modifiers;
+};
 
 /* Mouse */
 
@@ -126,7 +126,7 @@ combo_##NAME { \
 #define U_WH_R &msc SCRL_RIGHT
 
 #define SMART_NUM &smart_num NUM 0
-// #define MAGIC_SHIFT &magic_shift LSHFT 0
+#define MAGIC_SHIFT &magic_shift LSHFT 0
 
 #define NAV_LEFT  &mt LG(LEFT) LEFT  // Tap: left  | Long-tap: start of line.
 #define NAV_RIGHT &mt LG(RIGHT) RIGHT // Tap: right | Long-tap: end   of line.
@@ -261,34 +261,36 @@ combo_##NAME { \
         bindings = <&bootloader>, <&sys_reset>;
         tapping-term-ms = <500>;
       };
-      /* Magic-shift & auto-layers */
-      // Tap: repeat after alpha, else sticky-shift |
-      // Shift + tap/ double-tap: caps-word | Hold: shift.
-      // /omit-if-no-ref/ shift_repeat: shift_repeat {
-      //   compatible = "zmk,behavior-adaptive-key";
-      //   #binding-cells = <0>;
-      //   bindings = <&sk LSHFT>;
-      //   repeat {
-      //     trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
-      //     bindings = <&key_repeat>;
-      //     max-prior-idle-ms = <1200>;
-      //     strict-modifiers;
-      //   };
-      // };
-      // /omit-if-no-ref/ magic_shift_tap: magic_shift_tap {
-      //   compatible = "zmk,behavior-mod-morph";
-      //   #binding-cells = <0>;
-      //   bindings = <&shift_repeat>, <&caps_word>;
-      //   mods = <(MOD_LSFT)>;
-      // };
-      // /omit-if-no-ref/ magic_shift: magic_shift {
-      //   compatible = "zmk,behavior-hold-tap";
-      //   flavor = "balanced"; 
-      //   #binding-cells = <2>;
-      //   bindings = <&kp>, <&magic_shift_tap>;
-      //   tapping-term-ms = <200>;
-      //   quick-tap-ms = <QUICK_TAP_MS>;
-      // };
+      /* Magic-shift & auto-layers 
+      - Tap: repeat after alpha, else sticky-shift |
+      - Shift + tap / double-tap: caps-word 
+      - Hold: shift.
+      */
+      /omit-if-no-ref/ shift_repeat: shift_repeat {
+        compatible = "zmk,behavior-adaptive-key";
+        #binding-cells = <0>;
+        bindings = <&sk LSHFT>;
+        repeat {
+          trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
+          bindings = <&key_repeat>;
+          max-prior-idle-ms = <1200>;
+          strict-modifiers;
+        };
+      };
+      /omit-if-no-ref/ magic_shift_tap: magic_shift_tap {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&shift_repeat>, <&caps_word>;
+        mods = <(MOD_LSFT)>;
+      };
+      /omit-if-no-ref/ magic_shift: magic_shift {
+        compatible = "zmk,behavior-hold-tap";
+        flavor = "balanced"; 
+        #binding-cells = <2>;
+        bindings = <&kp>, <&magic_shift_tap>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <QUICK_TAP_MS>;
+      };
 
       /*
       - tab: space
@@ -518,7 +520,7 @@ combo_##NAME { \
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &undo_redo    &kp A         &hml LCTL S   &hml LALT D   &hml LGUI F   &kp G                             NAV_LEFT      &kp RET       NAV_RIGHT        &kp H         &hmr LGUI J   &hmr LALT K   &hmr LCTL L   &hmr DQT SQT  &hmr PLUS EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &smart_shift  &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &hmr EXCL QMARK &smart_shift
+    MAGIC_SHIFT   &kp Z         &kp X         &kp C         &kp V         &kp B            &kp RET                        NAV_DOWN                       &kp N         &kp M         &comma_morph  &dot_morph    &hmr EXCL QMARK MAGIC_SHIFT
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                               &lt FN ESC    &kp TAB       &lt_spc NAV 0                                                                  &lt NUM RET   &bkspc_del    &lang_screen
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
@@ -566,7 +568,7 @@ combo_##NAME { \
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           &kp N0        &hml LCTL N4  &hml LSHFT N5 &hml LGUI N6  XXX                               ___           ___           ___              XXX           &kp LGUI      &kp LALT      &kp LCTL      ___           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp N1        &kp N2        &kp N3        XXX              ___                            ___                            XXX           XXX           ___           ___           ___           &smart_shift
+    XXX           XXX           &kp N1        &kp N2        &kp N3        XXX              ___                            ___                            XXX           XXX           ___           ___           ___           MAGIC_SHIFT
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                               ___           ___           ___                                                                            ___           ___           CANCEL
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
