@@ -5,6 +5,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#include "zmk-helpers/helper.h"
+
 #define XXX &none
 #define ___ &trans
 
@@ -106,15 +108,10 @@
   };
 };
 
-/* Copied (modified) from https://github.com/caksoylar/zmk-config */
-#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM, IDLE) \
-combo_##NAME { \
-  timeout-ms = <TERM>; \
-  bindings = <BINDINGS>; \
-  key-positions = <KEYPOS>; \
-  layers = <LAYERS>; \
-  require-prior-idle-ms = <IDLE>; \
-};
+// Hack: Make HRM combos tap-only (cf, ZMK issue #544).
+#define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
+  MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
+  ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
 #define U_MS_U &mmv MOVE_UP
 #define U_MS_D &mmv MOVE_DOWN
@@ -523,29 +520,27 @@ combo_##NAME { \
     // │ LB5  LB4  LB3  LB2  LB1  LB0 │ │ LEC │  ╰───╮ JS4 ╭───╯  │ RB0  RB1  RB2  RB3  RB4  RB5 │
     // ╰──────────────╮ LH2  LH1  LH0 │ ╰─────╯      ╰─────╯      │ RH0  RH1  RH2 ╭──────────────╯
     //                ╰───────────────╯                           ╰───────────────╯
-    // COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TERM, IDLE)
     
       /* Horizontal combos - left hand */
-      COMBO(mouse, &smart_mouse,     LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(tab,   &hml LS(LGUI)TAB, LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(mouse, &smart_mouse,     LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(tab,   &hml LS(LGUI)TAB, LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(cut,   &kp LG(X),    LB3 LB1,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(copy,  &kp LG(C),    LB3 LB2,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(paste, &kp LG(V),    LB2 LB1,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(cut,   &kp LG(X),    LB3 LB1,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(copy,  &kp LG(C),    LB3 LB2,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(paste, &kp LG(V),    LB2 LB1,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
       
       /* Horizontal combos - right hand */
-      COMBO(bslh,  &kp BSLH,     RT4 RT5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(pipe,  &kp PIPE,     RM4 RM5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(bslh,  &kp BSLH,     RT4 RT5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(pipe,  &kp PIPE,     RM4 RM5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(lpar,  &lpar_lt,     RM1 RM2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL),    KEYS_L)
-      COMBO(rpar,  &rpar_gt,     RM2 RM3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT),     KEYS_L)
-      COMBO(lt,    &kp LT,       RM1 RM2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(gt,    &kp GT,       RM2 RM3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(lpar,  &lpar_lt,     RM1 RM2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL),    KEYS_L)
+      ZMK_COMBO(rpar,  &rpar_gt,     RM2 RM3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT),     KEYS_L)COMBO(lt,    &kp LT,       RM1 RM2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(gt,    &kp GT,       RM2 RM3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-      COMBO(lbkt,  &kp LBKT,     RB1 RB2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(rbkt,  &kp RBKT,     RB2 RB3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(lbrc,  &kp LBRC,     RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(rbrc,  &kp RBRC,     RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(lbkt,  &kp LBKT,     RB1 RB2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(rbkt,  &kp RBKT,     RB2 RB3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(lbrc,  &kp LBRC,     RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      ZMK_COMBO(rbrc,  &kp RBRC,     RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
     };
 
     conditional_layers {
