@@ -136,17 +136,17 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {t: '$$mdi:play-pause$$', type: held}
+  - $$mdi:play-pause$$
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
+  - {type: none}
+  - {type: none}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - $$mdi:close-box$$
   Num:
   - {type: none}
   - {type: none}
@@ -295,16 +295,13 @@ layers:
   - {t: ▽, type: trans}
   - $$mdi:close-box$$
 combos:
-- p: [2, 3]
-  k: $$mdi:keyboard-esc$$
-  l: [Base, Nav, Num]
-- p: [3, 4]
+- p: [0, 1]
   k: $$mdi:mouse$$
   l: [Base, Nav, Num]
   a: top
-- p: [15, 16]
-  k: $$mdi:keyboard-tab$$
-  l: [Base, Nav, Num]
+- p: [2, 3]
+  k: $
+  l: [Base, Nav]
 - p: [30, 32]
   k: $$mdi:content-cut$$
   l: [Base, Nav]
