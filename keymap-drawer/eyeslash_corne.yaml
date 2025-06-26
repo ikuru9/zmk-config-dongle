@@ -15,19 +15,19 @@ layers:
   - P
   - {t: '-', h: _}
   - {t: '$$mdi:undo$$', h: '$$mdi:redo$$'}
-  - A
-  - {t: S, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: D, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: F, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: A, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: S, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: D, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
   - {t: '$$mdi:arrow-left$$', h: '$$mdi:arrow-collapse-left$$'}
   - $$mdi:keyboard-return$$
   - {t: '$$mdi:arrow-right$$', h: '$$mdi:arrow-collapse-right$$'}
   - H
-  - {t: J, h: '$$mdi:apple-keyboard-command$$'}
-  - {t: K, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: L, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: '''', h: '"'}
+  - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: K, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: L, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '''', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '=', h: +}
   - {t: Magic, h: Shift}
   - Z
@@ -43,11 +43,11 @@ layers:
   - {t: ., h: '>', s: /}
   - {t: '?', h: '!'}
   - {t: Magic, h: Shift}
-  - {t: '$$mdi:keyboard-esc$$', h: Fn}
-  - $$mdi:keyboard-tab$$
+  - {t: '$$mdi:keyboard-esc$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: Numword, h: Num, s: Sticky Num}
   - {t: '$$mdi:keyboard-space$$', h: Nav, s: '$$mdi:text-search$$'}
-  - {t: '$$mdi:keyboard-return$$', h: Num}
-  - {t: '$$mdi:backspace$$', s: '$$mdi:backspace-reverse-outline$$', type: backspace}
+  - {t: '$$mdi:keyboard-return$$', h: Fn}
+  - {t: '$$mdi:keyboard-backspace$$', s: DELETE}
   - $$tabler:world$$
   Nav:
   - {t: ▽, type: trans}
@@ -141,14 +141,20 @@ layers:
   - {type: none}
   - {type: none}
   - {type: none}
-  - {type: held}
   - {type: none}
   - {type: none}
-  - $$mdi:play-pause$$
+  - {type: none}
+  - {t: '$$mdi:play-pause$$', type: held}
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
   Num:
   - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {t: ▽, type: trans}
   - {type: none}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -156,44 +162,38 @@ layers:
   - {type: none}
   - {t: ▽, type: trans}
   - {type: none}
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-shift$$
   - {type: none}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {t: '0', s: )}
   - {t: '4', h: '$$mdi:apple-keyboard-control$$', s: $}
   - {t: '5', h: '$$mdi:apple-keyboard-shift$$', s: '%'}
   - {t: '6', h: '$$mdi:apple-keyboard-command$$', s: ^}
-  - {type: none}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: none}
-  - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:apple-keyboard-control$$
+  - {t: '0', h: '$$mdi:apple-keyboard-control$$', s: )}
   - {t: ▽, type: trans}
   - {type: none}
   - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: none}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
   - {t: '3', s: '#'}
-  - {type: none}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: none}
-  - {type: none}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: Magic, h: Shift}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - $$mdi:close-box$$
   Sys:
@@ -240,9 +240,9 @@ layers:
   - {t: '$$mdi:backup-restore$$', type: ghost}
   - {t: '$$mdi:progress-download$$', type: ghost}
   - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
   - {t: ▽, type: trans}
-  - {type: held}
-  - {type: held}
   - {t: ▽, type: trans}
   - $$mdi:close-box$$
   Mouse:
@@ -295,10 +295,16 @@ layers:
   - {t: ▽, type: trans}
   - $$mdi:close-box$$
 combos:
+- p: [2, 3]
+  k: $$mdi:keyboard-esc$$
+  l: [Base, Nav, Num]
 - p: [3, 4]
   k: $$mdi:mouse$$
   l: [Base, Nav, Num]
   a: top
+- p: [15, 16]
+  k: '&hml LS(LGUI)TAB'
+  l: [Base, Nav, Num]
 - p: [30, 32]
   k: $$mdi:content-cut$$
   l: [Base, Nav]
@@ -315,11 +321,17 @@ combos:
 - p: [26, 27]
   k: '|'
   l: [Base]
+- p: [8, 9]
+  k: {h: '[', s: '{'}
+  l: [Base]
+- p: [9, 10]
+  k: {h: ']', s: '}'}
+  l: [Base]
 - p: [23, 24]
-  k: (
+  k: <
   l: [Base]
 - p: [24, 25]
-  k: )
+  k: '>'
   l: [Base]
 - p: [37, 38]
   k: '{'
@@ -327,9 +339,3 @@ combos:
 - p: [38, 39]
   k: '}'
   l: [Base]
-- p: [37, 38]
-  k: {h: '[', s: '{'}
-  l: [Nav]
-- p: [38, 39]
-  k: {h: ']', s: '}'}
-  l: [Nav]
