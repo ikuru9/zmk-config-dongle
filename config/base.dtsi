@@ -546,7 +546,7 @@ combo_##NAME { \
 
       COMBO(bslh,  &kp BSLH,     RT4 RT5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(pipe,  &kp PIPE,     RM4 RM5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(flsh,  &kp SLASH,     RMB RB5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(flsh,  &kp SLASH,    RB4 RB5,     DEF        , COMBO_TERM_FAST, COMBO_IDLE_FAST)
     };
 
     conditional_layers {
