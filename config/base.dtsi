@@ -528,9 +528,9 @@ combo_##NAME { \
     //                ╰───────────────╯                           ╰───────────────╯
     
       /* Horizontal combos - left hand */
-      COMBO(esc,   &kp ESC,          LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(mouse, &smart_mouse,     LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-      COMBO(tab,   &kp TAB,          LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+      COMBO(mouse, &smart_mouse,     LT5 LT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+      COMBO(dllr,  &kp DLLR,     LT3 LT2,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
       COMBO(cut,   &kp LG(X),    LB3 LB1,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
       COMBO(copy,  &kp LG(C),    LB3 LB2,     DEF NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
@@ -601,9 +601,9 @@ combo_##NAME { \
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                   ╭─────────────┼─────────────┼─────────────╮  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           &kp F11       &hml LCTL F4  &hml LALT F5 &hml LGUI F6   XXX                               ___           ___           ___              XXX           WIN_LEFT      XXX           WIN_RIGHT     XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮  ╰─────────────┼─────────────┼─────────────╯  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           &kp F10       &kp F1        &kp F2        &kp F3        XXX              ___                            ___                            XXX           XXX           XXX           XXX           XXX           XXX
+    XXX           &kp F10       &kp F1        &kp F2        &kp F3        XXX              ___                            ___                            XXX           &kp C_PP      &kp C_PREV    &kp C_NEXT    XXX           XXX
 //╰─────────────┼─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤  ╰─────────────╯                ╰─────────────╯                ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                              XXX           XXX           XXX                                                                            &kp C_PP      &kp C_PREV    &kp C_NEXT 
+                                              ___           ___           ___                                                                            ___           ___           CANCEL
 //                                          ╰─────────────┴─────────────┴─────────────╯                                                                ╰─────────────┴─────────────┴─────────────╯
         >;
         sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
