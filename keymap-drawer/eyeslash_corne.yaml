@@ -303,7 +303,7 @@ combos:
   l: [Base, Nav, Num]
   a: top
 - p: [15, 16]
-  k: '&hml LS(LGUI)TAB'
+  k: $$mdi:keyboard-tab$$
   l: [Base, Nav, Num]
 - p: [30, 32]
   k: $$mdi:content-cut$$
@@ -315,12 +315,6 @@ combos:
 - p: [31, 32]
   k: $$mdi:content-paste$$
   l: [Base, Nav]
-- p: [11, 12]
-  k: \
-  l: [Base]
-- p: [26, 27]
-  k: '|'
-  l: [Base]
 - p: [8, 9]
   k: {h: '[', s: '{'}
   l: [Base]
@@ -328,14 +322,20 @@ combos:
   k: {h: ']', s: '}'}
   l: [Base]
 - p: [23, 24]
-  k: <
+  k: (
   l: [Base]
 - p: [24, 25]
-  k: '>'
+  k: )
   l: [Base]
 - p: [37, 38]
   k: '{'
   l: [Base]
 - p: [38, 39]
   k: '}'
+  l: [Base]
+- p: [11, 12]
+  k: \
+  l: [Base]
+- p: [26, 27]
+  k: '|'
   l: [Base]
