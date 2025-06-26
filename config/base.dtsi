@@ -429,7 +429,7 @@ combo_##NAME { \
         compatible = "zmk,behavior-tap-dance";
         tapping-term-ms = <TAPPING_TERM_MS>;
         #binding-cells = <0>;
-        bindings = <&kp F19>, <&hmr FN LS(LC(LG(N4)))>;
+        bindings = <&kp F19>, <&kp LS(LC(LG(N4)))>;
       };
     };
 
