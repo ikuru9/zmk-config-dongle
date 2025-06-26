@@ -6,7 +6,7 @@ parse_config:
     "&dot_spc": "Sentence"
     "&num_dance":
       tap: "Numword"
-      shiftedd: "Sticky Num"
+      shifted: "Sticky Num"
     "&magic_shift": 
       tap: "Magic"
       hold: "Shift"
