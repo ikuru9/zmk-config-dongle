@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - {t: '$$mdi:arrow-up$$', h: '$$mdi:arrow-collapse-up$$'}
+  - $$mdi:arrow-collapse-up$$
   - Y
   - U
   - I
@@ -20,9 +20,9 @@ layers:
   - {t: D, h: '$$mdi:apple-keyboard-command$$'}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - {t: '$$mdi:arrow-left$$', h: '$$mdi:arrow-collapse-left$$'}
+  - $$mdi:arrow-collapse-left$$
   - $$mdi:keyboard-return$$
-  - {t: '$$mdi:arrow-right$$', h: '$$mdi:arrow-collapse-right$$'}
+  - $$mdi:arrow-collapse-right$$
   - H
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: K, h: '$$mdi:apple-keyboard-command$$'}
@@ -36,7 +36,7 @@ layers:
   - V
   - B
   - $$mdi:keyboard-return$$
-  - {t: '$$mdi:arrow-down$$', h: '$$mdi:arrow-collapse-down$$'}
+  - $$mdi:arrow-collapse-down$$
   - N
   - M
   - {t: ',', h: <, s: ;}
@@ -249,14 +249,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - $$mdi:pan-up$$
   - {t: ▽, type: trans}
-  - {t: '$$mdi:mouse$$', s: '$$mdi:menu-up$$'}
   - {t: ▽, type: trans}
   - {t: '$$mdi:mouse$$', s: '$$mdi:menu-up$$'}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:menu-up$$'}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -265,14 +264,14 @@ layers:
   - $$mdi:pan-left$$
   - $$mdi:pan-down$$
   - $$mdi:pan-right$$
+  - {t: ▽, type: trans}
   - {t: '$$mdi:mouse$$', left: '$$mdi:menu-left$$'}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:mouse$$', right: '$$mdi:menu-right$$'}
+  - {t: ▽, type: trans}
   - {t: '$$mdi:mouse$$', left: '$$mdi:menu-left$$'}
   - {t: '$$mdi:mouse$$', h: '$$mdi:menu-down$$'}
   - {t: '$$mdi:mouse$$', right: '$$mdi:menu-right$$'}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -281,11 +280,12 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: '$$mdi:mouse$$', h: '$$mdi:menu-down$$'}
+  - {t: ▽, type: trans}
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
