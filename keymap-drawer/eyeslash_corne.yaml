@@ -43,7 +43,7 @@ layers:
   - {t: ., h: '>', s: /}
   - {t: '?', h: '!'}
   - {t: Magic, h: Shift}
-  - {t: '$$mdi:keyboard-esc$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '$$mdi:keyboard-tab$$', h: '$$mdi:apple-keyboard-command$$'}
   - {t: Numword, h: Num, s: Sticky Num}
   - {t: '$$mdi:keyboard-space$$', h: Nav, s: '$$mdi:text-search$$'}
   - {t: '$$mdi:keyboard-return$$', h: Fn}
@@ -52,8 +52,8 @@ layers:
   Nav:
   - {t: ▽, type: trans}
   - {type: none}
-  - {type: none}
   - Prev Win
+  - {type: none}
   - Next Win
   - {type: none}
   - {t: ▽, type: trans}
