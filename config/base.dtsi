@@ -553,7 +553,7 @@ combo_##NAME { \
       compatible = "zmk,conditional-layers";
 
       tri_layer_sys {
-          if-layers = <NAV NUM>;
+          if-layers = <NAV FN>;
           then-layer = <SYS>;
       };
     };
