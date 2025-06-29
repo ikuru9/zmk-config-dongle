@@ -301,7 +301,7 @@ combos:
   a: top
 - p: [2, 3]
   k: $
-  l: [Base, Nav]
+  l: [Base]
 - p: [30, 32]
   k: $$mdi:content-cut$$
   l: [Base, Nav]
