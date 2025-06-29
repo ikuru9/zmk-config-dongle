@@ -240,9 +240,9 @@ layers:
   - {t: '$$mdi:backup-restore$$', type: ghost}
   - {t: '$$mdi:progress-download$$', type: ghost}
   - {t: ▽, type: trans}
-  - {type: held}
-  - {type: held}
   - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
   - {t: ▽, type: trans}
   - $$mdi:close-box$$
   Mouse:
