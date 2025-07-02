@@ -44,7 +44,7 @@ layers:
   - {t: '?', h: '!'}
   - {t: Magic, h: Shift}
   - $$mdi:text-search$$
-  - {t: '$$mdi:keyboard-tab$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '$$mdi:keyboard-tab$$', h: Fn}
   - {t: '$$mdi:keyboard-space$$', h: Nav, s: '$$mdi:text-search$$'}
   - {t: '$$mdi:keyboard-return$$', h: Num}
   - {t: '$$mdi:keyboard-backspace$$', s: DELETE}
@@ -142,7 +142,7 @@ layers:
   - {type: none}
   - {type: none}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
