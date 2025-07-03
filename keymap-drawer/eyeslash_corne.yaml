@@ -136,8 +136,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: none}
-  - $$mdi:play-pause$$
   - $$mdi:skip-previous$$
+  - $$mdi:play-pause$$
   - $$mdi:skip-next$$
   - {type: none}
   - {type: none}
