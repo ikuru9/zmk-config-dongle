@@ -334,7 +334,7 @@ combo_##NAME { \
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp ESC>, <&kp GRAVE>;
-        mods = <(MOD_LCTL|MOD_RCTL)>;
+        mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>;
       };
 
       /*
