@@ -330,11 +330,18 @@ combo_##NAME { \
         mods = <(MOD_LSFT|MOD_RSFT)>;
       };
 
+      /*
+      - tap: esc
+      - ctrl + tap: `
+      - ctrl + shift + tap: ~
+
+      From: https://zmk.dev/docs/keymaps/behaviors/mod-morph#mod-morph
+      */
       /omit-if-no-ref/ esc_grave: esc_grave {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp ESC>, <&kp GRAVE>;
-        mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>;
+        mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
       };
 
       /*
