@@ -332,29 +332,28 @@ combo_##NAME { \
 
       /*
       - tap: esc
-      - ctrl + tap: `
-      - ctrl + shift + tap: ~
+      - shift + tap: `
+      - command + shift + tap: ~
 
       From: https://zmk.dev/docs/keymaps/behaviors/mod-morph#mod-morph
       */
-
-      /omit-if-no-ref/ grave_tilde: grave_tilde {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&kp GRAVE>, <&kp TILDE>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-      };
       /omit-if-no-ref/ esc_grave: esc_grave {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp ESC>, <&grave_tilde>;
+        bindings = <&kp ESC>, <&esc_grave_inner_morph>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      /omit-if-no-ref/ esc_grave_inner_morph: esc_grave_inner_morph {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp GRAVE>, <&kp TILDE>;
         mods = <(MOD_LGUI|MOD_RGUI)>;
       };
 
       /*
       - tap: comma
       - shift + tap: semicolon
-      - ctrl + shift + tap: <
+      - command + shift + tap: <
 
       From: https://zmk.dev/docs/behaviors/mod-morph#advanced-configuration
       */
@@ -374,7 +373,7 @@ combo_##NAME { \
       /*
       - tap: dot
       - shift + tap: colon
-      - ctrl + shift + tap: >
+      - command + shift + tap: >
 
       From: https://zmk.dev/docs/behaviors/mod-morph#advanced-configuration
       */
