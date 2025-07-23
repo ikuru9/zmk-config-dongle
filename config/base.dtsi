@@ -337,11 +337,18 @@ combo_##NAME { \
 
       From: https://zmk.dev/docs/keymaps/behaviors/mod-morph#mod-morph
       */
+
+      /omit-if-no-ref/ grave_tilde: grave_tilde {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp GRAVE>, <&kp TILDE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
       /omit-if-no-ref/ esc_grave: esc_grave {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp ESC>, <&kp GRAVE>;
-        mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
+        bindings = <&kp ESC>, <&grave_tilde>;
+        mods = <(MOD_LGUI|MOD_RGUI)>;
       };
 
       /*
