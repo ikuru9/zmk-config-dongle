@@ -45,7 +45,7 @@ layers:
   - {t: Magic, h: Shift}
   - $$mdi:text-search$$
   - {t: '$$mdi:keyboard-tab$$', h: Fn}
-  - {t: '$$mdi:keyboard-space$$', h: Nav, s: '$$mdi:text-search$$'}
+  - {t: '$$mdi:keyboard-space$$', h: Nav}
   - {t: '$$mdi:keyboard-return$$', h: Num}
   - {t: '$$mdi:keyboard-backspace$$', s: DELETE}
   - $$tabler:world$$
