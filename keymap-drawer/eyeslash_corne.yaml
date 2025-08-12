@@ -107,9 +107,9 @@ layers:
   - {type: none}
   - {t: ▽, type: trans}
   - $$mdi:fullscreen$$
+  - $$mdi:arrow-left-bold$$
   - {type: none}
-  - {type: none}
-  - {type: none}
+  - $$mdi:arrow-right-bold$$
   - {type: none}
   - {type: none}
   - {type: none}
@@ -122,9 +122,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: none}
-  - $$mdi:arrow-left-bold$$
+  - Ctl+Alt+$$mdi:arrow-left$$
   - {type: none}
-  - $$mdi:arrow-right-bold$$
+  - Ctl+Alt+$$mdi:arrow-right$$
   - {type: none}
   - {type: none}
   - {type: none}
