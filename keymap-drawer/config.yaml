@@ -292,10 +292,12 @@ parse_config:
     LC(LG(F)): $$mdi:fullscreen$$
     LC(LG(SPACE)): $$mdi:text-search$$
     LS(LG(TAB)): "Prev Win"
-    LC(LA(LG(LEFT))): 
-      tap: $$mdi:arrow-left-bold$$
-    LC(LA(LG(RIGHT))): 
-      tap: $$mdi:arrow-right-bold$$
+    LC(LA(LG(LEFT))): $$mdi:arrow-left-bold$$
+    LC(LA(LG(RIGHT))): $$mdi:arrow-right-bold$$
+    
+    LC(LA(LEFT)): $$tabler:layout-sidebar-left-collapse$$
+    LC(LA(RIGHT)): $$tabler:layout-sidebar-right-collapse$$
+    
 
     # Numbers
     N1:
@@ -503,3 +505,4 @@ draw_config:
     mdil: https://raw.githubusercontent.com/Pictogrammers/MaterialDesignLight/master/svg/{}.svg
     material: https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/{}/default/48px.svg
   use_local_cache: true
+
