@@ -136,9 +136,9 @@ layers:
   - {t: ▽, type: trans}
   - {type: none}
   - {type: none}
-  - $$tabler:layout-sidebar-right-collapse$$
-  - {type: none}
   - $$tabler:layout-sidebar-left-collapse$$
+  - {type: none}
+  - $$tabler:layout-sidebar-right-collapse$$
   - {type: none}
   - {type: none}
   - {t: ▽, type: trans}
