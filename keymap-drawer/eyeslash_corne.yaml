@@ -105,11 +105,11 @@ layers:
   - F8
   - F9
   - {type: none}
-  - {t: ▽, type: trans}
-  - $$mdi:fullscreen$$
-  - $$mdi:arrow-left-bold$$
   - {type: none}
-  - $$mdi:arrow-right-bold$$
+  - $$mdi:fullscreen$$
+  - $$tabler:caret-left$$
+  - {type: none}
+  - $$tabler:caret-right$$
   - {type: none}
   - {type: none}
   - {type: none}
@@ -118,13 +118,13 @@ layers:
   - {t: F5, h: '$$mdi:apple-keyboard-command$$'}
   - {t: F6, h: '$$mdi:apple-keyboard-shift$$'}
   - {type: none}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - $$mdi:skip-previous$$
+  - $$mdi:play-pause$$
+  - $$mdi:skip-next$$
   - {type: none}
-  - Ctl+Alt+$$mdi:arrow-left$$
+  - $$mdi:arrow-left-bold$$
   - {type: none}
-  - Ctl+Alt+$$mdi:arrow-right$$
+  - $$mdi:arrow-right-bold$$
   - {type: none}
   - {type: none}
   - {type: none}
@@ -134,11 +134,11 @@ layers:
   - F3
   - {type: none}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {type: none}
-  - $$mdi:skip-previous$$
-  - $$mdi:play-pause$$
-  - $$mdi:skip-next$$
+  - {type: none}
+  - $$tabler:layout-sidebar-right-collapse$$
+  - {type: none}
+  - $$tabler:layout-sidebar-left-collapse$$
   - {type: none}
   - {type: none}
   - {t: ▽, type: trans}
