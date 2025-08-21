@@ -142,6 +142,8 @@ combo_##NAME { \
 #define WIN_RIGHT  &kp LC(LA(LG(RIGHT)))
 #define FIT_LEFT  &kp LC(LA(LEFT))
 #define FIT_RIGHT  &kp LC(LA(RIGHT))
+#define SPACE_LEFT  &kp LC(LEFT)
+#define SPACE_RIGHT  &kp LC(RIGHT)
 
 #define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
 #define DSK_PREV  &hmr LCTL LG(LC(LEFT)) // Previous desktop.
@@ -612,13 +614,13 @@ combo_##NAME { \
         display-name = "Fn";
         bindings = <
 //╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                       ╭────────────────╮                   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
-    XXX              &kp F12          &kp F7           &kp F8           &kp F9           XXX                                                      ___                                  &kp LC(LG(F))    WIN_LEFT         XXX              WIN_RIGHT        XXX              XXX
+    XXX              &kp F12          &kp F7           &kp F8           &kp F9           XXX                                                      XXX                                  &kp LC(LG(F))    SPACE_LEFT       XXX              SPACE_RIGHT      XXX              XXX
 //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                      ╭────────────────┼────────────────┼────────────────╮  ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
-    XXX              &hml LCTL F11   &hml LALT F4     &hml LGUI F5     &hml LSHFT F6    XXX                                     ___              ___              ___                  XXX              FIT_LEFT         XXX              FIT_RIGHT        XXX              XXX
+    XXX              &hml LCTL F11   &hml LALT F4     &hml LGUI F5     &hml LSHFT F6    XXX                                     &kp C_PREV        &kp C_PP         &kp C_NEXT          XXX              WIN_LEFT         XXX              WIN_RIGHT        XXX              XXX
 //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤  ╭────────────────╮  ╰────────────────┼────────────────┼────────────────╯  ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
-    XXX              &kp F10          &kp F1           &kp F2           &kp F3           XXX                 ___                                  ___                                  XXX              &kp C_PREV       &kp C_PP         &kp C_NEXT       XXX              XXX
+    XXX              &kp F10          &kp F1           &kp F2           &kp F3           XXX                 ___                                  XXX                                  XXX              FIT_RIGHT        XXX              FIT_LEFT         XXX              XXX
 //╰────────────────┼────────────────┼────────────────┴────────────────┼────────────────┼────────────────┤  ╰────────────────╯                   ╰────────────────╯                   ├────────────────┼────────────────┼────────────────┴────────────────┴────────────────┴────────────────╯
-                                                       ___              ___              ___                                                                                          ___              ___               CANCEL
+                                                       ___              ___              ___                                                                                           ___              ___              CANCEL
 //                                                   ╰────────────────┴────────────────┴────────────────╯                                                                            ╰────────────────┴────────────────┴────────────────╯
         >;
         sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
