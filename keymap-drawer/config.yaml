@@ -272,6 +272,9 @@ parse_config:
     DOWN: $$mdi:arrow-down$$
     LEFT: $$mdi:arrow-left$$
     RIGHT: $$mdi:arrow-right$$
+    
+    LC(LEFT): $$tabler:caret-left$$
+    LC(RIGHT):  $$tabler:caret-right$$
     LA(LEFT): $$mdi:arrow-collapse-left$$
     LA(RIGHT): $$mdi:arrow-collapse-right$$
     LG(LEFT): $$mdi:arrow-collapse-left$$
@@ -505,4 +508,5 @@ draw_config:
     mdil: https://raw.githubusercontent.com/Pictogrammers/MaterialDesignLight/master/svg/{}.svg
     material: https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/{}/default/48px.svg
   use_local_cache: true
+
 
